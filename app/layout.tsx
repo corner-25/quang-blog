@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
-import { Inter, Playfair_Display, JetBrains_Mono } from "next/font/google";
+import { Inter, Fraunces, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
+import { Cursor } from "@/components/cursor";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -11,10 +12,11 @@ const inter = Inter({
   display: "swap",
 });
 
-const playfair = Playfair_Display({
-  variable: "--font-playfair",
+const fraunces = Fraunces({
+  variable: "--font-display",
   subsets: ["latin", "vietnamese"],
   display: "swap",
+  axes: ["SOFT", "opsz"],
 });
 
 const mono = JetBrains_Mono({
@@ -58,10 +60,11 @@ export default function RootLayout({
     <html
       lang="vi"
       suppressHydrationWarning
-      className={`${inter.variable} ${playfair.variable} ${mono.variable} h-full antialiased`}
+      className={`${inter.variable} ${fraunces.variable} ${mono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-background text-foreground">
         <ThemeProvider>
+          <Cursor />
           <Navbar />
           <main className="flex-1 flex flex-col">{children}</main>
           <Footer />
