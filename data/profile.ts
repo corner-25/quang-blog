@@ -3,7 +3,7 @@ export const profile = {
   shortName: "Quang",
   roles: ["AI Engineer", "Data Scientist", "Healthcare Informatics"],
   tagline:
-    "Tin rằng tri thức là tấm vé thông hành — và mỗi dòng dữ liệu đều có thể trở thành một quyết định cứu người.",
+    "Tích lũy học vấn là bồi đắp căn cơ; tu dưỡng đạo đức là dựng xây phẩm giá",
   bio: `Tôi là Dương Hữu Quang. Tôi viết code, viết bài, đọc sách,
 và đang dùng dữ liệu để giúp các bác sĩ ra quyết định lâm sàng tốt hơn
 tại Bệnh viện Đại học Y Dược TP.HCM.`,
@@ -45,7 +45,7 @@ export const education = [
 export const experience = [
   {
     company: "Bệnh viện Đại học Y Dược TP.HCM",
-    role: "Chuyên viên",
+    role: "Chuyên viên Tổng hợp",
     period: "08/2025 — Hiện tại",
     location: "TP. Hồ Chí Minh",
     bullets: [
@@ -106,7 +106,7 @@ export const projects: Project[] = [
     role: "Solo — toàn bộ vòng đời dự án",
   },
   {
-    title: "Hệ thống Kỳ thi ảnh — Ngày Thư ký Thế giới 2026",
+    title: "Hệ thống Kiểm tra nghiệp vụ và Bình chọn ảnh — Ngày Thư ký Thế giới 2026",
     year: "2026",
     org: "Bệnh viện Đại học Y Dược TP.HCM",
     summary:
@@ -132,14 +132,14 @@ export const research = [
       "Tiếp cận tích hợp giữa Khai phá Luật kết hợp & Học sâu cho Hệ hỗ trợ quyết định lâm sàng",
     venue: "Khoá luận tốt nghiệp — ĐH Bách Khoa TP.HCM",
     year: "2025",
-    note: "Đăng trên tạp chí Tin học Y học quốc gia (2025) và tạp chí quốc tế thuộc danh mục SCOPUS (in press). Báo cáo tại SIM Conference 2025.",
+    note: "Đăng trên tạp chí quốc tế thuộc danh mục SCOPUS (in press).",
   },
   {
     title:
-      "Bài báo nộp Hội nghị Khoa học tuổi trẻ — Bệnh viện Đại học Y Dược TP.HCM",
+      "Ứng dụng, so sánh các mô hình Machine Learning dự đoán tái nhập viện bệnh Đái tháo đường Type 2",
     venue: "Hội nghị Khoa học tuổi trẻ BV ĐHYD TP.HCM",
-    year: "2026",
-    note: "Đang trong quá trình bình duyệt.",
+    year: "2025",
+    note: "",
   },
 ];
 
