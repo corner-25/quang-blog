@@ -18,7 +18,7 @@ import {
   experience,
   press,
   profile,
-  projects,
+  projectsByRecent,
   research,
 } from "@/data/profile";
 
@@ -56,8 +56,8 @@ export function AboutPreview() {
           },
           {
             icon: Sparkles,
-            label: "Coding",
-            text: "Code để giải quyết vấn đề thật, không phải để khoe.",
+            label: "Vibe coding",
+            text: "Giải quyết vấn đề thật bằng AI — không phải để khoe.",
           },
         ].map(({ icon: Icon, label, text }, i) => (
           <motion.div
@@ -204,7 +204,7 @@ export function ExperienceSection() {
 }
 
 export function ProjectsPreview() {
-  const featured = projects.slice(0, 3);
+  const featured = projectsByRecent.slice(0, 3);
   return (
     <Section id="projects">
       <div className="flex items-end justify-between gap-6">

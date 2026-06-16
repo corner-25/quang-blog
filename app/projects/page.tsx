@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Section, SectionHeader } from "@/components/section";
 import { ProjectsGrid } from "@/components/projects-grid";
-import { projects } from "@/data/profile";
+import { projectsByRecent } from "@/data/profile";
 
 export const metadata: Metadata = {
   title: "Dự án",
@@ -20,7 +20,7 @@ export default function ProjectsPage() {
         />
       </Section>
       <Section className="pt-0 pb-20">
-        <ProjectsGrid projects={projects} />
+        <ProjectsGrid projects={projectsByRecent} />
       </Section>
     </>
   );

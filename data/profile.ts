@@ -7,7 +7,7 @@ export const profile = {
   bio: `Tôi là Dương Hữu Quang. Tôi viết code, viết bài, đọc sách,
 và đang dùng dữ liệu để giúp các bác sĩ ra quyết định lâm sàng tốt hơn
 tại Bệnh viện Đại học Y Dược TP.HCM.`,
-  hobbies: ["Viết lách", "Đọc sách", "Coding"],
+  hobbies: ["Viết lách", "Đọc sách", "Vibe coding"],
   email: "huuquang.data@gmail.com",
   location: "TP. Hồ Chí Minh, Việt Nam",
 };
@@ -124,7 +124,43 @@ export const projects: Project[] = [
     role: "Solo — toàn bộ vòng đời dự án",
     highlight: true,
   },
+  {
+    title: "Hệ thống Quản lý Đảng viên — Đảng uỷ Bệnh viện",
+    year: "2026",
+    org: "Bệnh viện Đại học Y Dược TP.HCM",
+    summary:
+      "Số hoá công tác quản lý đảng viên cho Đảng uỷ bệnh viện: hồ sơ đảng viên, sinh hoạt chi bộ, đảng phí, theo dõi quá trình phấn đấu và báo cáo cho cấp uỷ.",
+    stack: ["Full-stack", "Workflow Automation", "PostgreSQL"],
+    role: "Solo — toàn bộ vòng đời dự án",
+  },
+  {
+    title: "UMC AI HUB — Hệ thống AI ứng dụng công tác hành chính",
+    year: "2026",
+    org: "Bệnh viện Đại học Y Dược TP.HCM",
+    summary:
+      "Nền tảng tập trung các ứng dụng AI hỗ trợ nghiệp vụ hành chính: trợ lý xử lý văn bản, tra cứu quy trình, tự động hoá tác vụ lặp lại — giúp cán bộ giảm thời gian thao tác thủ công.",
+    stack: ["LLM", "RAG", "Next.js", "Python", "Vector DB"],
+    role: "Solo — toàn bộ vòng đời dự án",
+    highlight: true,
+  },
 ];
+
+// Năm lớn nhất xuất hiện trong chuỗi year (vd "2025 — 2026" -> 2026).
+function latestYear(year: string): number {
+  const matches = year.match(/\d{4}/g);
+  if (!matches) return 0;
+  return Math.max(...matches.map(Number));
+}
+
+// Dự án sắp xếp theo gần đây nhất trước. Cùng năm thì dự án khai báo sau
+// (mới thêm) đứng trước — sort ổn định nên ta đảo chỉ số khi hoà.
+export const projectsByRecent: Project[] = projects
+  .map((project, index) => ({ project, index }))
+  .sort((a, b) => {
+    const diff = latestYear(b.project.year) - latestYear(a.project.year);
+    return diff !== 0 ? diff : b.index - a.index;
+  })
+  .map(({ project }) => project);
 
 export const research = [
   {

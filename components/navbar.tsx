@@ -12,7 +12,7 @@ const navItems = [
   { href: "/", label: "Trang chủ" },
   { href: "/about", label: "Giới thiệu" },
   { href: "/projects", label: "Dự án" },
-  { href: "/research", label: "Nghiên cứu" },
+  { href: "/research", label: "Dấu ấn" },
   { href: "/blog", label: "Nhân sinh quan" },
   { href: "/timeline", label: "Cột mốc" },
 ];

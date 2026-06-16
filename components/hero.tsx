@@ -74,7 +74,7 @@ export function Hero() {
           initial={reduce ? false : { opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.65 }}
-          className="mt-8 max-w-2xl text-lg leading-relaxed text-muted-foreground md:text-xl"
+          className="mt-8 text-lg leading-relaxed text-muted-foreground md:whitespace-nowrap md:text-xl"
         >
           {profile.tagline}
         </motion.p>
@@ -117,7 +117,7 @@ export function Hero() {
             { k: "GPA", v: "3.8/4.0" },
             { k: "Khoá luận", v: "9.5/10" },
             { k: "Xếp loại", v: "Xuất sắc" },
-            { k: "Dự án solo", v: "6+" },
+            { k: "Dự án solo", v: "10+" },
           ].map((s) => (
             <div
               key={s.k}

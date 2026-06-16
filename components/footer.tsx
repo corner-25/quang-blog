@@ -69,7 +69,7 @@ export function Footer() {
             </li>
             <li>
               <Link href="/research" className="link-underline">
-                Nghiên cứu & Báo chí
+                Dấu ấn
               </Link>
             </li>
             <li>
