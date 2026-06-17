@@ -57,7 +57,7 @@ export function AboutPreview() {
           {
             icon: Sparkles,
             label: "Vibe coding",
-            text: "Giải quyết vấn đề thật bằng AI — không phải để khoe.",
+            text: "Giải quyết vấn đề thật bằng AI.",
           },
         ].map(({ icon: Icon, label, text }, i) => (
           <motion.div
