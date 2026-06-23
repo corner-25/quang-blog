@@ -4,7 +4,7 @@ import {
   EducationSection,
   ExperienceSection,
 } from "@/components/home-sections";
-import { Section, SectionHeader } from "@/components/section";
+import { Section } from "@/components/section";
 import { profile } from "@/data/profile";
 
 export const metadata: Metadata = {

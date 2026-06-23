@@ -5,6 +5,8 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { Cursor } from "@/components/cursor";
+import { MotionProvider } from "@/components/motion-provider";
+import { ScrollProgress } from "@/components/scroll-progress";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -64,10 +66,13 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col bg-background text-foreground">
         <ThemeProvider>
-          <Cursor />
-          <Navbar />
-          <main className="flex-1 flex flex-col">{children}</main>
-          <Footer />
+          <MotionProvider>
+            <ScrollProgress />
+            <Cursor />
+            <Navbar />
+            <main className="flex-1 flex flex-col">{children}</main>
+            <Footer />
+          </MotionProvider>
         </ThemeProvider>
       </body>
     </html>
