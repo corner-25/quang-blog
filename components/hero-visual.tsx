@@ -18,9 +18,23 @@ export function HeroVisual() {
     <motion.div
       aria-hidden
       initial={reduce ? false : { opacity: 0, scale: 0.92, x: 24 }}
-      animate={{ opacity: 1, scale: 1, x: 0 }}
-      transition={{ duration: 0.8, delay: 0.45 }}
-      className="pointer-events-none relative mx-auto aspect-square w-full max-w-[430px]"
+      animate={{
+        opacity: 1,
+        x: 0,
+        scale: reduce ? 1 : [1, 1.12, 0.99, 1.07, 1, 1],
+      }}
+      transition={{
+        opacity: { duration: 0.8, delay: 0.45 },
+        x: { duration: 0.8, delay: 0.45 },
+        scale: {
+          duration: 1.65,
+          delay: 1.2,
+          times: [0, 0.1, 0.2, 0.3, 0.42, 1],
+          repeat: Infinity,
+          ease: "easeInOut",
+        },
+      }}
+      className="pointer-events-none relative mx-auto aspect-square w-full max-w-[430px] origin-center"
     >
       <div className="absolute inset-[9%] rounded-full bg-accent/8 blur-3xl" />
 
@@ -66,11 +80,22 @@ export function HeroVisual() {
         >
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_30%,var(--accent-soft),transparent_68%)]" />
           <motion.div
-            animate={reduce ? undefined : { scale: [1, 1.12, 1] }}
+            animate={
+              reduce
+                ? undefined
+                : {
+                    scale: [1, 1.08, 1],
+                    boxShadow: [
+                      "0 0 18px rgba(56,189,248,0.2)",
+                      "0 0 34px rgba(56,189,248,0.45)",
+                      "0 0 18px rgba(56,189,248,0.2)",
+                    ],
+                  }
+            }
             transition={{ duration: 3.2, repeat: Infinity, ease: "easeInOut" }}
-            className="relative h-5 w-5 rounded-full border border-accent/40 bg-accent/15"
+            className="relative flex h-14 w-14 items-center justify-center rounded-2xl border border-accent/35 bg-background/75 text-accent backdrop-blur"
           >
-            <span className="absolute inset-1 rounded-full bg-accent shadow-[0_0_20px_var(--accent)]" />
+            <Activity className="h-6 w-6" strokeWidth={1.8} />
           </motion.div>
           <Sparkles className="absolute right-[22%] top-[22%] h-4 w-4 text-accent" />
         </motion.div>
