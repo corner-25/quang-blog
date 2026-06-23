@@ -92,7 +92,9 @@ export function Hero() {
                 {i > 0 && (
                   <span className="h-1.5 w-1.5 rounded-full bg-muted-foreground/60" />
                 )}
-                <span className="shimmer-text font-semibold">{r}</span>
+                <span className="shimmer-text relative z-10 font-semibold [backface-visibility:hidden] [transform:translateZ(0)]">
+                  {r}
+                </span>
               </span>
             ))}
           </motion.div>
