@@ -106,6 +106,24 @@ export const projects: Project[] = [
     role: "Solo — toàn bộ vòng đời dự án",
   },
   {
+    title: "Hệ thống Khảo sát nội bộ Phòng Hành chính",
+    year: "2026",
+    org: "Bệnh viện Đại học Y Dược TP.HCM",
+    summary:
+      "Công cụ khảo sát dùng chung cho Phòng Hành chính: soạn phiếu, phát tới từng nhóm viên chức, theo dõi tỉ lệ phản hồi và tổng hợp kết quả. Thay cho vòng lặp quen thuộc là gửi file biểu mẫu rồi ngồi gõ lại từng câu trả lời vào bảng tính.",
+    stack: ["Full-stack", "Survey Design", "PostgreSQL"],
+    role: "Thiết kế hệ thống",
+  },
+  {
+    title: "Portal Hội nghị Viên chức — Người lao động 2026",
+    year: "2026",
+    org: "Bệnh viện Đại học Y Dược TP.HCM",
+    summary:
+      "Cổng thông tin của kỳ hội nghị: vừa là nơi tra cứu tài liệu, chương trình, vừa là nơi thu thập ý kiến viên chức trước thềm hội nghị. Ý kiến gửi về được xử lý bằng AI để gom nhóm chủ đề, rồi trực quan hoá bằng word cloud — để thấy ngay điều gì đang được nhắc tới nhiều nhất, thay vì đọc hết vài trăm phiếu rời rạc.",
+    stack: ["Next.js", "LLM", "NLP", "Word Cloud", "Data Visualization"],
+    role: "Thiết kế hệ thống",
+  },
+  {
     title: "Hệ thống Kiểm tra nghiệp vụ và Bình chọn ảnh — Ngày Thư ký Thế giới 2026",
     year: "2026",
     org: "Bệnh viện Đại học Y Dược TP.HCM",
