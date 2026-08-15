@@ -134,6 +134,36 @@ export const projects: Project[] = [
     role: "Solo — toàn bộ vòng đời dự án",
   },
   {
+    title: "Nền tảng Quản lý Chỉ số hoạt động Bệnh viện",
+    year: "2025 — 2026",
+    org: "Bệnh viện Đại học Y Dược TP.HCM",
+    summary:
+      "Nền tảng dữ liệu tập trung hợp nhất chỉ số hoạt động của toàn bộ các đơn vị về một nguồn duy nhất: nộp lưu, chuẩn hoá và trực quan hoá dữ liệu. Thay vì phải xuất file rồi import thủ công vào Power BI hay Tableau, hệ thống dựng biểu đồ ngay trên chính dữ liệu đang sống — mỗi lần dữ liệu được nộp lưu, báo cáo tự cập nhật.",
+    stack: ["Business Analysis", "Data Modeling", "Data Visualization", "Full-stack"],
+    role: "Business Analyst — phân tích nghiệp vụ & thiết kế hệ thống",
+    highlight: true,
+  },
+  {
+    title: "Dashboard báo cáo Ban Giám đốc",
+    year: "2026",
+    org: "Bệnh viện Đại học Y Dược TP.HCM",
+    summary:
+      "Bảng điều hành dành riêng cho Ban Giám đốc: báo cáo tự động sinh theo ngày, đối chiếu biến động với các kỳ trước và diễn giải bằng biểu đồ trực quan. Mục tiêu là để lãnh đạo mở máy buổi sáng đã thấy bức tranh hoạt động của bệnh viện — không cần chờ ai tổng hợp.",
+    stack: ["Business Analysis", "Frontend Design", "Data Visualization", "UI/UX"],
+    role: "Business Analyst & Frontend Design",
+    highlight: true,
+  },
+  {
+    title: "Hệ thống Quản lý Vật tư — Trang thiết bị Y tế 360°",
+    year: "2026",
+    org: "Bệnh viện Đại học Y Dược TP.HCM",
+    summary:
+      "Quản lý trọn vòng đời trang thiết bị y tế trong một hệ thống duy nhất: hợp đồng, linh kiện, bảo trì, khấu hao, nhập — xuất kho. Mỗi thiết bị có một hồ sơ sống, từ lúc ký hợp đồng cho đến khi thanh lý, để bệnh viện luôn biết tài sản của mình đang ở đâu và còn lại bao nhiêu giá trị.",
+    stack: ["Asset Lifecycle", "Inventory", "PostgreSQL", "Full-stack"],
+    role: "Solo — toàn bộ vòng đời dự án",
+    highlight: true,
+  },
+  {
     title: "UMC AI HUB — Hệ thống AI ứng dụng công tác hành chính",
     year: "2026",
     org: "Bệnh viện Đại học Y Dược TP.HCM",
@@ -163,6 +193,13 @@ export const projectsByRecent: Project[] = projects
   .map(({ project }) => project);
 
 export const research = [
+  {
+    title:
+      "Mô hình bệnh tật của Viên chức — Người lao động: phân tích hồ sơ khám sức khoẻ định kỳ tại một bệnh viện tuyến cuối",
+    venue: "Bài báo khoa học — phát triển từ dự án tại BV ĐHYD TP.HCM",
+    year: "2026",
+    note: "Từ dữ liệu khám sức khoẻ định kỳ, bài báo mô tả cơ cấu bệnh tật theo nhóm tuổi, giới tính và vị trí công tác — làm cơ sở cho chương trình chăm sóc sức khoẻ chủ động cho chính đội ngũ y tế.",
+  },
   {
     title:
       "Tiếp cận tích hợp giữa Khai phá Luật kết hợp & Học sâu cho Hệ hỗ trợ quyết định lâm sàng",
