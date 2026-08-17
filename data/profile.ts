@@ -3,10 +3,8 @@ export const profile = {
   shortName: "Quang",
   roles: ["AI Engineer", "Data Scientist", "Healthcare Informatics"],
   tagline:
-    "Tích lũy học vấn là bồi đắp căn cơ; tu dưỡng đạo đức là dựng xây phẩm giá",
-  bio: `Tôi là Dương Hữu Quang. Tôi viết code, viết bài, đọc sách,
-và đang dùng dữ liệu để giúp các bác sĩ ra quyết định lâm sàng tốt hơn
-tại Bệnh viện Đại học Y Dược TP.HCM.`,
+    "Dùng dữ liệu, công nghệ và tư duy hệ thống để giải quyết những bài toán có ý nghĩa trong y tế.",
+  bio: `Tôi là Dương Hữu Quang, kỹ sư AI và nhà khoa học dữ liệu theo đuổi lĩnh vực tin học y tế. Tôi xây dựng các sản phẩm dữ liệu, nghiên cứu mô hình hỗ trợ quyết định và chuyển những quy trình phức tạp thành hệ thống dễ sử dụng tại Bệnh viện Đại học Y Dược TP.HCM. Bên cạnh công việc, tôi viết để lưu lại những điều mình học được trên hành trình ấy.`,
   hobbies: ["Viết lách", "Đọc sách", "Vibe coding"],
   email: "huuquang.data@gmail.com",
   location: "TP. Hồ Chí Minh, Việt Nam",
@@ -19,25 +17,25 @@ export const education = [
     period: "2021 — 2025",
     highlights: [
       "GPA 3.8/4.0",
-      "Tốt nghiệp Thủ khoa chuyên ngành",
-      "Tốt nghiệp loại Xuất sắc",
-      "Khoá luận tốt nghiệp 9.5/10",
+      "Thủ khoa chuyên ngành",
+      "Tốt nghiệp loại xuất sắc",
+      "Khóa luận tốt nghiệp: 9.5/10",
     ],
     thesis: {
       title:
-        "Tích hợp giữa Khai phá Luật kết hợp & Học sâu cho Hệ hỗ trợ quyết định lâm sàng tại Bệnh viện Đa khoa Khu vực Cai Lậy",
+        "Tích hợp khai phá luật kết hợp và học sâu cho hệ hỗ trợ quyết định lâm sàng tại Bệnh viện Đa khoa Khu vực Cai Lậy",
       titleEn:
         "An Integrated Approach of Association Rule Mining & Deep Learning for Clinical Decision Support at Cai Lậy Regional General Hospital",
-      score: "9.5/10 —  Khoá luận đạt điểm cao nhất Khoa",
+      score: "9.5/10 — Điểm cao nhất khoa",
       bullets: [
-        "Ẩn danh hoá hơn 100.000 lượt khám, chữa bệnh (2022–2024); xây dựng pipeline ETL Python (pandas, SQL) chạy hằng đêm, nạp dữ liệu vào Snowflake.",
-        "Khai phá 57 luật lâm sàng có support cao bằng Apriori / FP-Growth, kết hợp luật và chuỗi sinh hiệu (vital signs) trong một mạng FCNN.",
-        "Đạt AUROC 0.91 cho dự đoán tái nhập viện trong 7 ngày, 0.88 cho tử vong nội viện — cao hơn hồi quy logistic 14 điểm phần trăm mà vẫn giải thích được.",
-        "Demo Streamlit đạt SUS 86/100; thời gian lập kế hoạch xuất viện giảm 18%.",
-        "Kết quả công bố trên một tạp chí Tin học Y học quốc gia (2025) và một tạp chí quốc tế thuộc danh mục SCOPUS (in press); báo cáo tại SIM Conference 2025.",
+        "Ẩn danh hóa hơn 100.000 lượt khám, chữa bệnh giai đoạn 2022–2024; xây dựng quy trình ETL bằng Python, pandas và SQL để xử lý dữ liệu hằng đêm và lưu trữ trên Snowflake.",
+        "Khai phá 57 luật lâm sàng có độ hỗ trợ cao bằng Apriori và FP-Growth; tích hợp các luật này với chuỗi sinh hiệu trong mô hình mạng nơ-ron truyền thẳng (FCNN).",
+        "Đạt AUROC 0.91 khi dự đoán tái nhập viện trong 7 ngày và 0.88 khi dự đoán tử vong nội viện; cao hơn mô hình hồi quy logistic 14 điểm phần trăm nhưng vẫn duy trì khả năng diễn giải.",
+        "Xây dựng nguyên mẫu trên Streamlit, đạt điểm khả dụng SUS 86/100 và giúp rút ngắn 18% thời gian lập kế hoạch xuất viện.",
+        "Kết quả được công bố trên một tạp chí tin học y học trong nước năm 2025, được chấp nhận đăng trên một tạp chí quốc tế thuộc danh mục Scopus và trình bày tại SIM Conference 2025.",
       ],
       conclusion:
-        "Chứng minh rằng việc kết hợp luật kết hợp minh bạch với học sâu cho ra một CDSS chính xác, được bác sĩ tin tưởng và có thể triển khai trên phần cứng phổ thông tại bệnh viện tuyến tỉnh.",
+        "Nghiên cứu cho thấy việc kết hợp tính minh bạch của luật kết hợp với năng lực dự báo của học sâu có thể tạo nên một hệ hỗ trợ quyết định lâm sàng chính xác, dễ được bác sĩ tiếp nhận và phù hợp với hạ tầng của bệnh viện tuyến tỉnh.",
     },
   },
 ];
@@ -49,9 +47,9 @@ export const experience = [
     period: "08/2025 — Hiện tại",
     location: "TP. Hồ Chí Minh",
     bullets: [
-      "Thống kê, phân tích dữ liệu phục vụ điều hành.",
-      "Số hoá công tác Phòng Hành chính.",
-      "Xây dựng mô hình bệnh tật hỗ trợ quyết định lâm sàng cho viên chức – người lao động.",
+      "Tổng hợp và phân tích dữ liệu, cung cấp thông tin phục vụ công tác điều hành.",
+      "Số hóa quy trình hành chính và phát triển các công cụ hỗ trợ vận hành nội bộ.",
+      "Phân tích dữ liệu khám sức khỏe định kỳ, xây dựng mô hình bệnh tật cho viên chức — người lao động.",
     ],
   },
 ];
@@ -68,32 +66,32 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    title: "Số hoá tồn kho & Dự báo đơn hàng",
+    title: "Số hóa tồn kho và dự báo đơn hàng",
     year: "2024",
     org: "Công ty TNHH Giang Minh",
     summary:
-      "Xây dựng hệ thống quản lý tồn kho theo thời gian thực kèm mô hình dự báo đơn hàng, giúp bộ phận kinh doanh chủ động lên kế hoạch nhập hàng và giảm tồn đọng.",
+      "Phát triển hệ thống theo dõi tồn kho theo thời gian thực, kết hợp mô hình dự báo nhu cầu để hỗ trợ bộ phận kinh doanh lập kế hoạch nhập hàng chủ động và hạn chế hàng tồn đọng.",
     stack: ["Python", "Time-series Forecasting", "PostgreSQL", "Power BI"],
-    role: "Solo — toàn bộ vòng đời dự án",
+    role: "Phụ trách toàn bộ vòng đời dự án",
   },
   {
-    title: "Hệ thống chăm sóc sức khoẻ & Đặt lịch khám từ xa",
+    title: "Hệ thống chăm sóc sức khỏe và đặt lịch khám từ xa",
     year: "2025",
     org: "Bệnh viện Đa khoa Vạn An",
     summary:
-      "Nền tảng cho phép người dùng theo dõi sức khoẻ người thân, đặt lịch khám từ xa, kết nối trực tiếp với hệ thống của bệnh viện.",
+      "Xây dựng nền tảng giúp người dùng quản lý thông tin sức khỏe của người thân, đặt lịch khám trực tuyến và kết nối dữ liệu với hệ thống bệnh viện.",
     stack: ["Node.js", "Express", "MongoDB", "React", "Redux Toolkit", "MUI"],
-    role: "Solo — toàn bộ vòng đời dự án",
+    role: "Phụ trách toàn bộ vòng đời dự án",
     highlight: true,
   },
   {
-    title: "Hệ thống HIS Phòng khám Tim mạch",
+    title: "Hệ thống HIS cho phòng khám tim mạch",
     year: "2026",
     org: "Phòng khám Tim mạch Tuyết Lan",
     summary:
-      "Hệ thống thông tin bệnh viện (HIS) chuyên biệt cho chuyên khoa tim mạch — quản lý bệnh nhân, lịch khám, hồ sơ điện tử, báo cáo thống kê.",
+      "Phát triển hệ thống thông tin chuyên biệt cho phòng khám tim mạch, hợp nhất nghiệp vụ quản lý bệnh nhân, lịch khám, hồ sơ điện tử và báo cáo thống kê trên một nền tảng.",
     stack: ["Node.js", "Express", "PostgreSQL", "React 19", "MUI 7", "Recharts"],
-    role: "Solo — toàn bộ vòng đời dự án",
+    role: "Phụ trách toàn bộ vòng đời dự án",
     highlight: true,
   },
   {
@@ -101,94 +99,94 @@ export const projects: Project[] = [
     year: "2025 — 2026",
     org: "Bệnh viện Đại học Y Dược TP.HCM",
     summary:
-      "Số hoá toàn bộ nghiệp vụ của Phòng Hành chính: tài liệu, văn bản, lịch trực, báo cáo — tích hợp một cửa cho lãnh đạo theo dõi.",
+      "Xây dựng nền tảng tập trung để số hóa quy trình quản lý tài liệu, văn bản, lịch trực và báo cáo; giúp lãnh đạo theo dõi hoạt động hành chính tại một đầu mối thống nhất.",
     stack: ["Full-stack", "Workflow Automation"],
-    role: "Solo — toàn bộ vòng đời dự án",
+    role: "Phụ trách toàn bộ vòng đời dự án",
   },
   {
-    title: "Hệ thống Khảo sát nội bộ Phòng Hành chính",
+    title: "Hệ thống khảo sát nội bộ Phòng Hành chính",
     year: "2026",
     org: "Bệnh viện Đại học Y Dược TP.HCM",
     summary:
-      "Công cụ khảo sát dùng chung cho Phòng Hành chính: soạn phiếu, phát tới từng nhóm viên chức, theo dõi tỉ lệ phản hồi và tổng hợp kết quả. Thay cho vòng lặp quen thuộc là gửi file biểu mẫu rồi ngồi gõ lại từng câu trả lời vào bảng tính.",
+      "Phát triển công cụ khảo sát nội bộ hỗ trợ thiết kế phiếu, phân phối theo nhóm đối tượng, theo dõi tỷ lệ phản hồi và tự động tổng hợp kết quả; thay thế quy trình gửi biểu mẫu và nhập liệu thủ công.",
     stack: ["Full-stack", "Survey Design", "PostgreSQL"],
-    role: "Solo — toàn bộ vòng đời dự án",
+    role: "Phụ trách toàn bộ vòng đời dự án",
   },
   {
-    title: "Portal Hội nghị Viên chức — Người lao động 2026",
+    title: "Cổng thông tin Hội nghị Viên chức — Người lao động 2026",
     year: "2026",
     org: "Bệnh viện Đại học Y Dược TP.HCM",
     summary:
-      "Cổng thông tin của kỳ hội nghị: vừa là nơi tra cứu tài liệu, chương trình, vừa là nơi thu thập ý kiến viên chức trước thềm hội nghị. Ý kiến gửi về được xử lý bằng AI để gom nhóm chủ đề, rồi trực quan hoá bằng word cloud — để thấy ngay điều gì đang được nhắc tới nhiều nhất, thay vì đọc hết vài trăm phiếu rời rạc.",
+      "Xây dựng cổng thông tin phục vụ tra cứu tài liệu, theo dõi chương trình và tiếp nhận ý kiến trước hội nghị. AI được ứng dụng để phân nhóm chủ đề và trực quan hóa nội dung phản hồi, giúp ban tổ chức nhanh chóng nhận diện các vấn đề được quan tâm.",
     stack: ["Next.js", "LLM", "NLP", "Word Cloud", "Data Visualization"],
-    role: "Solo — toàn bộ vòng đời dự án",
+    role: "Phụ trách toàn bộ vòng đời dự án",
   },
   {
-    title: "Hệ thống Kiểm tra nghiệp vụ và Bình chọn ảnh — Ngày Thư ký Thế giới 2026",
+    title: "Hệ thống kiểm tra nghiệp vụ và bình chọn ảnh — Ngày Thư ký Thế giới 2026",
     year: "2026",
     org: "Bệnh viện Đại học Y Dược TP.HCM",
     summary:
-      "Nền tảng tổ chức kỳ thi trực tuyến hướng đến sự kiện kỷ niệm “Ngày Thư ký Thế giới năm 2026”: ngân hàng câu hỏi, chấm tự động, bảng xếp hạng, tra cứu kết quả.",
+      "Phát triển nền tảng phục vụ Ngày Thư ký Thế giới 2026, tích hợp ngân hàng câu hỏi, thi và chấm điểm tự động, bảng xếp hạng, tra cứu kết quả và bình chọn ảnh trực tuyến.",
     stack: ["Node.js", "MongoDB", "React", "Vite"],
-    role: "Solo — toàn bộ vòng đời dự án",
+    role: "Phụ trách toàn bộ vòng đời dự án",
   },
   {
-    title: "Mô hình bệnh tật cho Viên chức – Người lao động",
+    title: "Mô hình bệnh tật của viên chức — người lao động",
     year: "2026",
     org: "Bệnh viện Đại học Y Dược TP.HCM",
     summary:
-      "Phân tích hồ sơ khám sức khoẻ định kỳ để xây dựng mô hình bệnh tật theo nhóm tuổi, giới tính, vị trí công tác — phục vụ chương trình chăm sóc sức khoẻ chủ động.",
+      "Phân tích hồ sơ khám sức khỏe định kỳ để mô tả cơ cấu bệnh tật theo độ tuổi, giới tính và vị trí công tác, làm cơ sở xây dựng chương trình chăm sóc sức khỏe chủ động cho nhân viên bệnh viện.",
     stack: ["Python", "Statistical Modeling", "Clinical Data"],
-    role: "Solo — toàn bộ vòng đời dự án",
+    role: "Nghiên cứu, phân tích dữ liệu và xây dựng mô hình",
     highlight: true,
   },
   {
-    title: "Hệ thống Quản lý Đảng viên — Đảng uỷ Bệnh viện",
+    title: "Hệ thống quản lý đảng viên — Đảng ủy Bệnh viện",
     year: "2026",
     org: "Bệnh viện Đại học Y Dược TP.HCM",
     summary:
-      "Số hoá công tác quản lý đảng viên cho Đảng uỷ bệnh viện: hồ sơ đảng viên, sinh hoạt chi bộ, đảng phí, theo dõi quá trình phấn đấu và báo cáo cho cấp uỷ.",
+      "Số hóa nghiệp vụ quản lý hồ sơ đảng viên, sinh hoạt chi bộ, đảng phí, quá trình phấn đấu và báo cáo; giúp cấp ủy theo dõi dữ liệu nhất quán trên một hệ thống tập trung.",
     stack: ["Full-stack", "Workflow Automation", "PostgreSQL"],
-    role: "Solo — toàn bộ vòng đời dự án",
+    role: "Phụ trách toàn bộ vòng đời dự án",
   },
   {
-    title: "Nền tảng Quản lý Chỉ số hoạt động Bệnh viện",
+    title: "Nền tảng quản lý chỉ số hoạt động bệnh viện",
     year: "2025 — 2026",
     org: "Bệnh viện Đại học Y Dược TP.HCM",
     summary:
-      "Nền tảng dữ liệu tập trung hợp nhất chỉ số hoạt động của toàn bộ các đơn vị về một nguồn duy nhất: nộp lưu, chuẩn hoá và trực quan hoá dữ liệu. Thay vì phải xuất file rồi import thủ công vào Power BI hay Tableau, hệ thống dựng biểu đồ ngay trên chính dữ liệu đang sống — mỗi lần dữ liệu được nộp lưu, báo cáo tự cập nhật.",
+      "Thiết kế nền tảng hợp nhất chỉ số hoạt động của các đơn vị, hỗ trợ thu thập, chuẩn hóa, lưu trữ và trực quan hóa dữ liệu tại một nguồn duy nhất. Báo cáo được cập nhật trực tiếp khi có dữ liệu mới, giảm phụ thuộc vào thao tác xuất — nhập thủ công qua các công cụ BI.",
     stack: ["Business Analysis", "Data Modeling", "Data Visualization", "Full-stack"],
-    role: "Business Analyst — phân tích nghiệp vụ & thiết kế hệ thống",
+    role: "Business Analyst — phân tích nghiệp vụ và thiết kế hệ thống",
     highlight: true,
   },
   {
-    title: "Dashboard báo cáo Ban Giám đốc",
+    title: "Bảng điều hành dành cho Ban Giám đốc",
     year: "2026",
     org: "Bệnh viện Đại học Y Dược TP.HCM",
     summary:
-      "Bảng điều hành dành riêng cho Ban Giám đốc: báo cáo tự động sinh theo ngày, đối chiếu biến động với các kỳ trước và diễn giải bằng biểu đồ trực quan. Mục tiêu là để lãnh đạo mở máy buổi sáng đã thấy bức tranh hoạt động của bệnh viện — không cần chờ ai tổng hợp.",
+      "Thiết kế bảng điều hành dành cho Ban Giám đốc, tự động cập nhật báo cáo hằng ngày, đối chiếu biến động giữa các kỳ và trình bày chỉ số qua biểu đồ trực quan; giúp lãnh đạo nắm bắt tình hình hoạt động mà không phải chờ tổng hợp thủ công.",
     stack: ["Business Analysis", "Frontend Design", "Data Visualization", "UI/UX"],
     role: "Business Analyst & Frontend Design",
     highlight: true,
   },
   {
-    title: "Hệ thống Quản lý Vật tư — Trang thiết bị Y tế 360°",
+    title: "Hệ thống quản lý vật tư — trang thiết bị y tế 360°",
     year: "2026",
     org: "Bệnh viện Đại học Y Dược TP.HCM",
     summary:
-      "Quản lý trọn vòng đời trang thiết bị y tế trong một hệ thống duy nhất: hợp đồng, linh kiện, bảo trì, khấu hao, nhập — xuất kho. Mỗi thiết bị có một hồ sơ sống, từ lúc ký hợp đồng cho đến khi thanh lý, để bệnh viện luôn biết tài sản của mình đang ở đâu và còn lại bao nhiêu giá trị.",
+      "Xây dựng hệ thống quản lý xuyên suốt vòng đời trang thiết bị y tế, từ hợp đồng, linh kiện, nhập — xuất kho đến bảo trì, khấu hao và thanh lý. Mỗi thiết bị có một hồ sơ tập trung, hỗ trợ theo dõi vị trí, tình trạng và giá trị còn lại.",
     stack: ["Asset Lifecycle", "Inventory", "PostgreSQL", "Full-stack"],
-    role: "Solo — toàn bộ vòng đời dự án",
+    role: "Phụ trách toàn bộ vòng đời dự án",
     highlight: true,
   },
   {
-    title: "UMC AI HUB — Hệ thống AI ứng dụng công tác hành chính",
+    title: "UMC AI Hub — Nền tảng AI cho công tác hành chính",
     year: "2026",
     org: "Bệnh viện Đại học Y Dược TP.HCM",
     summary:
-      "Nền tảng tập trung các ứng dụng AI hỗ trợ nghiệp vụ hành chính: trợ lý xử lý văn bản, tra cứu quy trình, tự động hoá tác vụ lặp lại — giúp cán bộ giảm thời gian thao tác thủ công.",
+      "Phát triển nền tảng tập trung các ứng dụng AI cho nghiệp vụ hành chính, gồm trợ lý xử lý văn bản, tra cứu quy trình và tự động hóa tác vụ lặp lại; qua đó giảm thời gian thao tác thủ công và tăng khả năng tiếp cận thông tin nội bộ.",
     stack: ["LLM", "RAG", "Next.js", "Python", "Vector DB"],
-    role: "Solo — toàn bộ vòng đời dự án",
+    role: "Phụ trách toàn bộ vòng đời dự án",
     highlight: true,
   },
 ];
@@ -213,24 +211,24 @@ export const projectsByRecent: Project[] = projects
 export const research = [
   {
     title:
-      "Mô hình bệnh tật của Viên chức — Người lao động: phân tích hồ sơ khám sức khoẻ định kỳ tại một bệnh viện tuyến cuối",
-    venue: "Bài báo khoa học — phát triển từ dự án tại BV ĐHYD TP.HCM",
+      "Mô hình bệnh tật của viên chức — người lao động: phân tích hồ sơ khám sức khỏe định kỳ tại một bệnh viện tuyến cuối",
+    venue: "Bài báo khoa học — phát triển từ dự án tại Bệnh viện Đại học Y Dược TP.HCM",
     year: "2026",
-    note: "Từ dữ liệu khám sức khoẻ định kỳ, bài báo mô tả cơ cấu bệnh tật theo nhóm tuổi, giới tính và vị trí công tác — làm cơ sở cho chương trình chăm sóc sức khoẻ chủ động cho chính đội ngũ y tế.",
+    note: "Nghiên cứu phân tích dữ liệu khám sức khỏe định kỳ nhằm nhận diện cơ cấu bệnh tật theo độ tuổi, giới tính và vị trí công tác, từ đó cung cấp bằng chứng cho việc thiết kế chương trình chăm sóc sức khỏe chủ động dành cho nhân viên y tế.",
   },
   {
     title:
-      "Tiếp cận tích hợp giữa Khai phá Luật kết hợp & Học sâu cho Hệ hỗ trợ quyết định lâm sàng",
-    venue: "Khoá luận tốt nghiệp — ĐH Bách Khoa TP.HCM",
+      "Tiếp cận tích hợp giữa khai phá luật kết hợp và học sâu cho hệ hỗ trợ quyết định lâm sàng",
+    venue: "Khóa luận tốt nghiệp — Trường Đại học Bách khoa, ĐHQG TP.HCM",
     year: "2025",
-    note: "Đăng trên tạp chí quốc tế thuộc danh mục SCOPUS (in press).",
+    note: "Nghiên cứu kết hợp các luật lâm sàng có khả năng diễn giải với mô hình học sâu nhằm nâng cao độ chính xác dự báo. Bài báo phát triển từ nghiên cứu đã được chấp nhận đăng trên một tạp chí quốc tế thuộc danh mục Scopus.",
   },
   {
     title:
-      "Ứng dụng, so sánh các mô hình Machine Learning dự đoán tái nhập viện bệnh Đái tháo đường Type 2",
-    venue: "Hội nghị Khoa học tuổi trẻ BV ĐHYD TP.HCM",
+      "Ứng dụng và so sánh các mô hình học máy trong dự đoán tái nhập viện ở người bệnh đái tháo đường típ 2",
+    venue: "Hội nghị Khoa học Tuổi trẻ — Bệnh viện Đại học Y Dược TP.HCM",
     year: "2025",
-    note: "",
+    note: "Nghiên cứu đánh giá và so sánh hiệu năng của nhiều mô hình học máy, hướng đến lựa chọn phương pháp phù hợp cho bài toán nhận diện sớm nguy cơ tái nhập viện.",
   },
 ];
 

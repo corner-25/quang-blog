@@ -10,7 +10,7 @@ import { profile } from "@/data/profile";
 export const metadata: Metadata = {
   title: "Giới thiệu",
   description:
-    "Hành trình của Dương Hữu Quang — từ giảng đường Bách Khoa đến công việc chuyên viên dữ liệu tại Bệnh viện Đại học Y Dược TP.HCM.",
+    "Dương Hữu Quang — kỹ sư AI và nhà khoa học dữ liệu theo đuổi các ứng dụng công nghệ trong y tế.",
 };
 
 export default function AboutPage() {

@@ -47,8 +47,8 @@ export function Footer() {
         <div>
           <h3 className="font-display text-xl font-bold">Dương Hữu Quang</h3>
           <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
-            AI Engineer · Data Scientist. Tin rằng tri thức là tấm vé thông
-            hành, và mọi câu chuyện đều đáng được kể lại tử tế.
+            Kỹ sư AI · Nhà khoa học dữ liệu · Tin học y tế. Xây dựng sản phẩm
+            từ dữ liệu và viết lại những điều đáng nhớ trên hành trình ấy.
           </p>
         </div>
 

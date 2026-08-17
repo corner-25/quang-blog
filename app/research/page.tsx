@@ -14,8 +14,8 @@ export default function ResearchPage() {
       <Section className="pt-28 md:pt-36 pb-6">
         <SectionHeader
           eyebrow="Dấu ấn"
-          title="Khi câu chữ đi xa hơn người viết."
-          description="Bắt đầu từ một khoá luận tốt nghiệp, rồi đến những bài báo trên truyền thông — đây là nơi tổng hợp lại tất cả."
+          title="Nghiên cứu, công bố và những dấu mốc được ghi nhận."
+          description="Nơi tổng hợp các nghiên cứu hình thành từ dữ liệu thực tiễn, cùng những bài viết báo chí ghi lại hành trình học tập và trưởng thành của tôi."
         />
       </Section>
       <ResearchPreview />

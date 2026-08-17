@@ -57,7 +57,7 @@ export function AboutPreview() {
           {
             icon: Sparkles,
             label: "Vibe coding",
-            text: "Giải quyết vấn đề thật bằng AI.",
+            text: "Biến ý tưởng thành sản phẩm có thể sử dụng.",
           },
         ].map(({ icon: Icon, label, text }, i) => (
           <motion.div
@@ -88,7 +88,7 @@ export function EducationSection() {
     <Section id="education">
       <SectionHeader
         eyebrow="Học vấn"
-        title="Hành trình ở Bách Khoa."
+        title="Nền tảng học thuật."
       />
 
       <div className="grid gap-8 lg:grid-cols-5">
@@ -158,7 +158,10 @@ export function EducationSection() {
 export function ExperienceSection() {
   return (
     <Section id="experience">
-      <SectionHeader eyebrow="Kinh nghiệm" title="Nơi tôi đang gắn bó." />
+      <SectionHeader
+        eyebrow="Kinh nghiệm"
+        title="Công việc tôi đang theo đuổi."
+      />
       <motion.div
         variants={stagger}
         initial="hidden"
@@ -210,8 +213,8 @@ export function ProjectsPreview() {
       <div className="flex items-end justify-between gap-6">
         <SectionHeader
           eyebrow="Dự án"
-          title="Những thứ tôi đã xây."
-          description="Tất cả đều một mình tôi phụ trách từ đầu đến cuối — từ thu thập yêu cầu, thiết kế, lập trình, triển khai đến vận hành."
+          title="Sản phẩm được xây từ những bài toán thực tế."
+          description="Từ phân tích nhu cầu, thiết kế giải pháp đến phát triển và vận hành, mỗi dự án là một nỗ lực đưa công nghệ vào quy trình làm việc cụ thể."
         />
         <Link
           href="/projects"
@@ -272,8 +275,8 @@ export function ResearchPreview() {
     <Section id="research">
       <SectionHeader
         eyebrow="Nghiên cứu khoa học"
-        title="Những gì tôi đã viết."
-        description="Bắt đầu từ khoá luận tốt nghiệp, từng bước biến công việc lâm sàng thành những bài báo có thể đem ra bàn luận."
+        title="Nghiên cứu bắt đầu từ thực tiễn."
+        description="Tôi theo đuổi những câu hỏi nảy sinh từ dữ liệu và hoạt động y tế, với mục tiêu tạo ra kết quả có giá trị học thuật và khả năng ứng dụng."
       />
 
       <div className="grid gap-5 md:grid-cols-2">
