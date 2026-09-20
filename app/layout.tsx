@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Space_Grotesk, JetBrains_Mono, Plus_Jakarta_Sans } from "next/font/google";
+import { Be_Vietnam_Pro, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Navbar } from "@/components/navbar";
@@ -8,24 +8,11 @@ import { Cursor } from "@/components/cursor";
 import { MotionProvider } from "@/components/motion-provider";
 import { ScrollProgress } from "@/components/scroll-progress";
 
-const inter = Inter({
-  variable: "--font-inter",
+const beVietnam = Be_Vietnam_Pro({
+  variable: "--font-sans",
   subsets: ["latin", "vietnamese"],
   display: "swap",
-});
-
-const jakarta = Plus_Jakarta_Sans({
-  variable: "--font-heading",
-  subsets: ["latin", "vietnamese"],
-  display: "swap",
-  weight: ["500", "600", "700", "800"],
-});
-
-const spaceGrotesk = Space_Grotesk({
-  variable: "--font-display",
-  subsets: ["latin", "vietnamese"],
-  display: "swap",
-  weight: ["500", "600", "700"],
+  weight: ["400", "500", "600", "700", "800"],
 });
 
 const mono = JetBrains_Mono({
@@ -69,7 +56,7 @@ export default function RootLayout({
     <html
       lang="vi"
       suppressHydrationWarning
-      className={`${inter.variable} ${jakarta.variable} ${spaceGrotesk.variable} ${mono.variable} h-full antialiased`}
+      className={`${beVietnam.variable} ${mono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-background text-foreground">
         <ThemeProvider>

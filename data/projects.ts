@@ -107,7 +107,7 @@ export const projectsData: ProjectDetail[] = [
   },
   {
     slug: "equipment-umc",
-    title: "UMC-MELMS — Quản lý Vòng đời Trang thiết bị Y tế 360°",
+    title: "UMC-MELMS — Quản lý Vòng đời Trang thiết bị Y tế",
     subtitle: "Hệ thống CMMS/EAM chuyên biệt cho trang thiết bị y tế bệnh viện tuyến cuối",
     year: "2026",
     category: "Chuyển đổi số & Vận hành",
@@ -130,12 +130,12 @@ export const projectsData: ProjectDetail[] = [
       "Mô hình Catalog thiết bị đa cấp (hỗ trợ linh kiện cha - con và phụ tùng dự phòng)",
       "9 quy trình điều chuyển thiết bị với xác nhận giao - nhận hai chiều điện tử",
       "Quản lý lịch bảo dưỡng dự phòng (Preventive Maintenance) và cảnh báo kiểm định",
-      "Tra cứu hồ sơ lý lịch máy 360° qua mã QR token quét trên điện thoại di động",
+      "Tra cứu hồ sơ lý lịch máy chi tiết qua mã QR token quét trên điện thoại di động",
       "Nhật ký kiểm toán (Audit Log) ghi nhận toàn bộ biến động vị trí và hiện trạng máy",
     ],
     metrics: [
       { label: "Quy trình điều chuyển", value: "9 loại nghiệp vụ" },
-      { label: "Kiến trúc dữ liệu", value: "Hồ sơ máy 360°" },
+      { label: "Dữ liệu thiết bị", value: "Hồ sơ số đồng bộ" },
       { label: "Kiểm định định kỳ", value: "Tự động cảnh báo" },
     ],
     stack: ["TypeScript", "Next.js", "Node.js", "PostgreSQL", "Prisma", "Docker"],
@@ -262,7 +262,7 @@ export const projectsData: ProjectDetail[] = [
     challenge:
       "Người Việt Nam sinh sống tại nước ngoài có nhu cầu theo dõi sức khỏe và mua gói khám định kỳ cho cha mẹ ở quê nhà, nhưng thiếu một kênh thanh toán quốc tế và hệ thống cập nhật tình trạng khám chữa bệnh minh bạch.",
     solution:
-      "Xây dựng hệ sinh thái khép kín: Mobile App cho người dùng đặt lịch và theo dõi hồ sơ; Merchant Portal cho ban giám đốc và bộ phận điều hành bệnh viện; Backend API tích hợp cổng thanh toán trực tuyến (VNPay, MoMo, ZaloPay) và module điều phối xe cấp cứu khẩn cấp.",
+      "Xây dựng hệ thống gồm 3 ứng dụng liên thông: Mobile App cho người dùng đặt lịch và theo dõi hồ sơ; Merchant Portal cho ban giám đốc và bộ phận điều hành; Backend API tích hợp cổng thanh toán trực tuyến (VNPay, MoMo, ZaloPay) và module điều phối xe cấp cứu khẩn cấp.",
     architecture: {
       frontend: "React 18, Redux Toolkit, Material-UI (Portal) + React Native / Expo (Mobile App)",
       backend: "Node.js, Express REST API, MongoDB Mongoose",
@@ -277,7 +277,7 @@ export const projectsData: ProjectDetail[] = [
       "Merchant Portal quản trị lịch hẹn, danh sách bác sĩ, chuyên khoa và doanh thu",
     ],
     metrics: [
-      { label: "Hệ sinh thái", value: "3 Ứng dụng" },
+      { label: "Kiến trúc", value: "3 Ứng dụng" },
       { label: "Gói khám chuyên sâu", value: "13+ Gói khám" },
       { label: "Cổng thanh toán", value: "VNPay, MoMo, ZaloPay" },
     ],
@@ -362,7 +362,7 @@ export const projectsData: ProjectDetail[] = [
     year: "2025",
     category: "Tin học Y tế",
     org: "Trường Đại học Bách khoa ĐHQG TP.HCM & BVĐK KV Cai Lậy",
-    role: "Tác giả nghiên cứu & Thủ khoa tốt nghiệp",
+    role: "Tác giả nghiên cứu (Thủ khoa chuyên ngành)",
     highlight: true,
     summary:
       "Mô hình AI dự báo tái nhập viện trong 7 ngày và tử vong nội viện từ hơn 100.000 lượt khám, dung hòa giữa độ chính xác cao của Deep Learning và tính diễn giải của Luật lâm sàng.",
@@ -383,7 +383,7 @@ export const projectsData: ProjectDetail[] = [
       "Được công bố trên tạp chí khoa học chuyên ngành trong nước và quốc tế (Scopus)",
     ],
     metrics: [
-      { label: "Điểm khóa luận", value: "9.5/10 (Thủ khoa)" },
+      { label: "Điểm khóa luận", value: "9.5/10 (Thủ khoa chuyên ngành)" },
       { label: "AUROC tái nhập viện", value: "0.91" },
       { label: "Hồ sơ phân tích", value: "> 100.000 lượt" },
     ],

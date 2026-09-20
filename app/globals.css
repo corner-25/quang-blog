@@ -42,15 +42,15 @@
   --color-gold-honor: var(--gold-honor);
   --color-card: var(--card);
   --color-card-foreground: var(--card-foreground);
-  --font-sans: var(--font-inter);
-  --font-heading: var(--font-heading);
-  --font-display: var(--font-display);
+  --font-sans: var(--font-sans);
+  --font-heading: var(--font-sans);
+  --font-display: var(--font-sans);
   --font-mono: var(--font-mono);
 }
 
 .font-heading {
-  font-family: var(--font-heading), var(--font-inter), sans-serif;
-  letter-spacing: -0.025em;
+  font-family: var(--font-sans), system-ui, -apple-system, sans-serif;
+  letter-spacing: -0.015em;
 }
 
 * {
@@ -87,8 +87,7 @@ html {
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
-  font-feature-settings: "ss01", "cv11";
+  font-family: var(--font-sans), ui-sans-serif, system-ui, -apple-system, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   transition: background-color 0.3s ease, color 0.3s ease;
@@ -116,10 +115,10 @@ body {
   background: var(--muted-foreground);
 }
 
-/* Typography utility — Modern tech display heading (Space Grotesk) */
+/* Typography utility — Clean modern heading */
 .font-display {
-  font-family: var(--font-display), var(--font-heading), sans-serif;
-  letter-spacing: -0.03em;
+  font-family: var(--font-sans), system-ui, -apple-system, sans-serif;
+  letter-spacing: -0.02em;
   font-weight: 700;
 }
 

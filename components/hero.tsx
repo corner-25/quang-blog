@@ -116,26 +116,26 @@ export function Hero() {
             initial={reduce ? false : { opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.8 }}
-            className="mt-10 flex flex-wrap items-center gap-3"
+            className="mt-8 mb-4 flex flex-wrap items-center gap-3"
           >
             <Link
-              href="/about"
-              className="group inline-flex items-center gap-2 rounded-full bg-foreground px-5 py-3 text-sm font-medium text-background transition-transform hover:-translate-y-0.5"
+              href="/projects"
+              className="group inline-flex items-center gap-2 rounded-full bg-foreground px-5 py-2.5 text-sm font-medium text-background transition-transform hover:-translate-y-0.5"
             >
-              Về tôi
+              Xem các dự án
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Link>
             <Link
-              href="/blog"
-              className="inline-flex items-center gap-2 rounded-full border border-border bg-background/60 px-5 py-3 text-sm font-medium hover:bg-muted transition"
+              href="/about"
+              className="inline-flex items-center gap-2 rounded-full border border-border bg-card/80 px-5 py-2.5 text-sm font-medium text-foreground hover:bg-muted transition backdrop-blur-sm"
             >
-              Đọc Nhân sinh quan
+              Đôi nét về tôi
             </Link>
             <Link
-              href="/projects"
-              className="inline-flex items-center gap-2 rounded-full border border-transparent px-3 py-3 text-sm font-medium text-muted-foreground hover:text-foreground transition"
+              href="/blog"
+              className="inline-flex items-center gap-2 rounded-full border border-border bg-card/80 px-5 py-2.5 text-sm font-medium text-foreground hover:bg-muted transition backdrop-blur-sm"
             >
-              Xem dự án →
+              Nhân sinh quan
             </Link>
           </motion.div>
         </div>
@@ -145,11 +145,11 @@ export function Hero() {
           initial={reduce ? false : { opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 1 }}
-          className="grid grid-cols-2 gap-4 sm:grid-cols-4 lg:col-span-2 lg:mt-4 z-10"
+          className="grid grid-cols-2 gap-4 sm:grid-cols-4 lg:col-span-2 mt-6 lg:mt-8 z-10"
         >
           {[
-            { k: "Danh hiệu", v: "Thủ khoa", sub: "ĐH Bách Khoa" },
-            { k: "Tốt nghiệp", v: "GPA 3.8", sub: "Loại Xuất sắc" },
+            { k: "Danh hiệu", v: "Thủ khoa chuyên ngành", sub: "ĐH Bách Khoa TP.HCM" },
+            { k: "Tốt nghiệp", v: "GPA 3.8 / 4.0", sub: "Loại Xuất sắc" },
             { k: "Khóa luận AI CDS", v: "9.5 / 10", sub: "Điểm cao nhất khoa" },
             { k: "Hệ thống y tế", v: "10+ Dự án", sub: "Thực tế tại BV ĐHYD" },
           ].map((s, i) => (
@@ -165,10 +165,10 @@ export function Hero() {
               <div className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">
                 {s.k}
               </div>
-              <div className="mt-1 font-heading text-2xl font-bold text-foreground group-hover:text-accent transition-colors">
+              <div className="mt-1 font-heading text-lg sm:text-xl font-bold text-foreground group-hover:text-accent transition-colors leading-snug">
                 {s.v}
               </div>
-              <div className="mt-0.5 text-[11px] text-muted-foreground">
+              <div className="mt-1 text-[11px] text-muted-foreground">
                 {s.sub}
               </div>
             </motion.div>

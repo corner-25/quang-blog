@@ -46,19 +46,19 @@ export default function AboutPage() {
         {/* Narrative Storytelling Card */}
         <div className="mt-12 rounded-3xl border border-border bg-card p-8 md:p-12 shadow-sm space-y-6 text-base md:text-lg leading-relaxed text-muted-foreground">
           <h2 className="font-heading text-2xl font-bold text-foreground">
-            “Tri thức là tấm vé thông hành đưa ta đi xa hơn số phận ban đầu.”
+            Làm công nghệ bằng sự thấu hiểu và tính kỷ luật.
           </h2>
           <p>
             {profile.bio}
           </p>
           <p>
-            Tôi từng trải qua hai năm gián đoạn việc học, mưu sinh trên từng cung đường TP.HCM bằng công việc chạy xe ôm công nghệ và giao hàng. Chính những tháng ngày đối mặt với nhọc nhằn của cuộc sống đã rèn luyện cho tôi sự bền bỉ, tính kỷ luật và niềm tin mãnh liệt rằng: chỉ có tri thức và hành động thực tế mới tạo ra sự chuyển dịch bền vững.
+            Trước khi quay lại giảng đường, tôi từng có hai năm tạm gác việc học để mưu sinh bằng nghề giao hàng và chạy xe ôm công nghệ khắp các nẻo đường TP.HCM. Những tháng ngày ấy rèn cho tôi sự kiên nhẫn, sức chịu đựng và quan trọng nhất: nhìn nhận cuộc sống một cách chân thật, không ảo tưởng.
           </p>
           <p>
-            Trở lại giảng đường Trường Đại học Bách khoa (ĐHQG TP.HCM), tôi dành trọn tâm huyết cho ngành Tin học Y tế và Trí tuệ Nhân tạo. Tôi tốt nghiệp với danh hiệu <strong>Thủ khoa chuyên ngành</strong>, điểm trung bình <strong>GPA 3.8/4.0</strong> và điểm khóa luận tốt nghiệp <strong>9.5/10</strong> — điểm số cao nhất khoa.
+            Khi trở lại Trường Đại học Bách khoa (ĐHQG TP.HCM), tôi dành toàn bộ sự tập trung cho hướng đi Tin học Y tế và Khoa học Dữ liệu. Với tôi, mỗi thuật toán hay mô hình dự báo không phải để phô diễn kỹ thuật, mà nhằm trả lời một câu hỏi cụ thể: làm sao để nhân viên y tế bớt vất vả, người bệnh bớt chờ đợi và quy trình trong bệnh viện vận hành trơn tru hơn.
           </p>
           <p>
-            Hiện nay tại Bệnh viện Đại học Y Dược TP.HCM, tôi trực tiếp tham gia xây dựng các hệ thống dữ liệu, ứng dụng AI xử lý tiếng nói y tế, số hóa quy trình hành chính và nghiên cứu mô hình hóa bệnh tật từ dữ liệu thực tiễn suốt 13 năm của bệnh viện.
+            Tôi hoàn thành chương trình đại học với danh hiệu <strong>Thủ khoa chuyên ngành</strong>, <strong>GPA 3.8/4.0</strong> và điểm khóa luận tốt nghiệp <strong>9.5/10</strong> (điểm cao nhất khoa). Hiện tại ở Bệnh viện Đại học Y Dược TP.HCM, tôi tiếp tục công việc mình yêu thích: phân tích dữ liệu lâm sàng, phát triển các công cụ hỗ trợ điều hành và tìm kiếm lời giải cho những bài toán y tế từ chính thực tế mỗi ngày.
           </p>
 
           <div className="pt-4 flex flex-wrap gap-4 border-t border-border">
@@ -66,13 +66,13 @@ export default function AboutPage() {
               href="/projects"
               className="inline-flex items-center gap-2 rounded-full bg-foreground px-5 py-2.5 text-sm font-medium text-background hover:opacity-90 transition"
             >
-              Xem các dự án đã làm <ArrowRight className="h-4 w-4" />
+              Xem các dự án thực tế <ArrowRight className="h-4 w-4" />
             </Link>
             <Link
               href="/research"
               className="inline-flex items-center gap-2 rounded-full border border-border px-5 py-2.5 text-sm font-medium text-foreground hover:bg-muted transition"
             >
-              Xem các bài báo & Báo chí
+              Bài báo khoa học & Báo chí
             </Link>
           </div>
         </div>

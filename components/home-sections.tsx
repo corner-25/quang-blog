@@ -216,21 +216,22 @@ export function ProjectsPreview() {
 
   return (
     <Section id="projects">
-      <div className="flex items-end justify-between gap-6">
-        <SectionHeader
-          eyebrow="Dự án thực tế"
-          title="Hệ thống xây dựng từ bài toán lâm sàng & vận hành."
-          description="Từ nghiên cứu, phân tích nghiệp vụ, thiết kế giải pháp đến phát triển và vận hành thực tế tại Bệnh viện Đại học Y Dược TP.HCM và các cơ sở y tế."
-        />
-        <Link
-          href="/projects"
-          className="hidden md:inline-flex items-center gap-1.5 rounded-full border border-border bg-card px-4 py-2 text-xs font-semibold text-foreground hover:border-accent/60 hover:text-accent transition shadow-sm"
-        >
-          Xem tất cả ({projectsByRecent.length} dự án) <ArrowUpRight className="h-4 w-4" />
-        </Link>
-      </div>
+      <SectionHeader
+        eyebrow="Dự án thực tế"
+        title="Những gì tôi đã và đang xây dựng."
+        description="Các sản phẩm dữ liệu và công cụ phần mềm phục vụ trực tiếp cho công tác chuyên môn và vận hành tại Bệnh viện Đại học Y Dược TP.HCM cùng các đối tác y tế."
+        action={
+          <Link
+            href="/projects"
+            className="hidden md:inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-2 text-xs font-semibold text-foreground hover:border-accent/60 hover:text-accent transition shadow-sm"
+          >
+            Xem tất cả ({projectsByRecent.length} dự án)
+            <ArrowUpRight className="h-3.5 w-3.5" />
+          </Link>
+        }
+      />
 
-      <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {featured.map((p, i) => (
           <ProjectCard
             key={p.slug || p.title}

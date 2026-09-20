@@ -11,17 +11,15 @@ export const metadata: Metadata = {
 
 export default function ProjectsPage() {
   return (
-    <>
-      <Section className="pt-28 md:pt-36 pb-6">
-        <SectionHeader
-          eyebrow="Dự án"
-          title="Giải pháp được xây cho những nhu cầu cụ thể."
-          description="Danh mục này ghi lại các sản phẩm tôi đã trực tiếp nghiên cứu, phân tích, thiết kế và phát triển. Mỗi dự án bắt đầu từ một vấn đề thực tế và hướng đến một kết quả có thể sử dụng, đo lường và tiếp tục cải tiến."
-        />
-      </Section>
-      <Section className="pt-0 pb-20">
+    <Section className="pt-28 md:pt-36 pb-24">
+      <SectionHeader
+        eyebrow="Danh mục dự án"
+        title="Những sản phẩm và hệ thống tôi từng xây dựng."
+        description="Tổng hợp các ứng dụng phần mềm, mô hình dữ liệu và công cụ tự động hóa tôi trực tiếp tham gia thiết kế, phát triển và đưa vào vận hành thực tế."
+      />
+      <div className="mt-8">
         <ProjectsGrid projects={projectsByRecent} />
-      </Section>
-    </>
+      </div>
+    </Section>
   );
 }
