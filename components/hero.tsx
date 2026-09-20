@@ -11,6 +11,7 @@ import { ArrowRight, Sparkles } from "lucide-react";
 import { profile } from "@/data/profile";
 import { useRef } from "react";
 import { HeroVisual } from "./hero-visual";
+import { HeroCanvas3D } from "./hero-canvas-3d";
 
 const roles = profile.roles;
 
@@ -31,18 +32,21 @@ export function Hero() {
 
   return (
     <section ref={sectionRef} className="relative isolate overflow-hidden">
-      {/* Background grid + blobs */}
+      {/* 3D WebGL Neural / Clinical Constellation */}
+      <HeroCanvas3D />
+
+      {/* Background grid + ambient glow */}
       <motion.div
         aria-hidden
         style={{ y: gridY }}
-        className="absolute inset-0 -z-10 bg-grid opacity-60"
+        className="absolute inset-0 -z-10 bg-grid opacity-40"
       />
       <div
-        className="blob animate-float bg-sky-300/50 dark:bg-sky-500/30"
+        className="blob animate-float bg-cyan-500/20 dark:bg-cyan-500/25"
         style={{ top: "-120px", left: "-80px", width: 420, height: 420 }}
       />
       <div
-        className="blob animate-float bg-blue-200/50 dark:bg-blue-700/20"
+        className="blob animate-float bg-emerald-500/15 dark:bg-emerald-500/20"
         style={{
           top: "10%",
           right: "-100px",
@@ -56,18 +60,18 @@ export function Hero() {
         style={{ y: contentY, opacity: contentOpacity }}
         className="mx-auto grid max-w-6xl items-center gap-12 px-6 pt-24 pb-28 lg:grid-cols-[minmax(0,1.35fr)_minmax(340px,0.65fr)] lg:gap-4 lg:pt-28 lg:pb-32"
       >
-        <div className="min-w-0">
+        <div className="min-w-0 z-10">
           <motion.div
             initial={reduce ? false : { opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 rounded-full border border-border bg-background/70 px-3 py-1 text-xs font-medium text-muted-foreground backdrop-blur"
+            className="inline-flex items-center gap-2 rounded-full border border-border bg-background/80 px-3 py-1 text-xs font-medium text-muted-foreground backdrop-blur-md"
           >
             <Sparkles className="h-3.5 w-3.5 text-accent" />
             Xin chào, tôi là Quang.
           </motion.div>
 
-          <h1 className="mt-6 font-display text-5xl font-bold leading-[1.05] tracking-tight md:text-7xl lg:text-[76px] xl:text-[84px]">
+          <h1 className="mt-6 font-heading text-5xl font-extrabold leading-[1.05] tracking-tight md:text-7xl lg:text-[76px] xl:text-[84px] text-foreground">
             {profile.name.split(" ").map((word, i) => (
               <motion.span
                 key={i}
@@ -141,13 +145,13 @@ export function Hero() {
           initial={reduce ? false : { opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 1 }}
-          className="grid grid-cols-2 gap-4 sm:grid-cols-4 lg:col-span-2 lg:mt-4"
+          className="grid grid-cols-2 gap-4 sm:grid-cols-4 lg:col-span-2 lg:mt-4 z-10"
         >
           {[
-            { k: "GPA", v: "3.8/4.0" },
-            { k: "Khoá luận", v: "9.5/10" },
-            { k: "Xếp loại", v: "Xuất sắc" },
-            { k: "Dự án solo", v: "10+" },
+            { k: "Danh hiệu", v: "Thủ khoa", sub: "ĐH Bách Khoa" },
+            { k: "Tốt nghiệp", v: "GPA 3.8", sub: "Loại Xuất sắc" },
+            { k: "Khóa luận AI CDS", v: "9.5 / 10", sub: "Điểm cao nhất khoa" },
+            { k: "Hệ thống y tế", v: "10+ Dự án", sub: "Thực tế tại BV ĐHYD" },
           ].map((s, i) => (
             <motion.div
               key={s.k}
@@ -155,14 +159,17 @@ export function Hero() {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               transition={{ duration: 0.5, delay: 0.9 + i * 0.08 }}
               whileHover={reduce ? undefined : { y: -5, scale: 1.015 }}
-              className="group relative overflow-hidden rounded-2xl border border-border bg-card p-4 transition-colors hover:border-accent/60 hover:shadow-[0_14px_40px_-20px_rgba(56,189,248,0.55)]"
+              className="group relative overflow-hidden rounded-2xl border border-border bg-card/85 backdrop-blur-sm p-4 transition-all hover:border-accent/60 hover:shadow-[0_14px_40px_-20px_rgba(0,240,255,0.35)]"
             >
               <span className="absolute inset-x-0 top-0 h-px origin-left scale-x-0 bg-gradient-to-r from-transparent via-accent to-transparent transition-transform duration-500 group-hover:scale-x-100" />
-              <div className="text-xs uppercase tracking-wider text-muted-foreground">
+              <div className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">
                 {s.k}
               </div>
-              <div className="mt-1 font-display text-2xl font-bold">
+              <div className="mt-1 font-heading text-2xl font-bold text-foreground group-hover:text-accent transition-colors">
                 {s.v}
+              </div>
+              <div className="mt-0.5 text-[11px] text-muted-foreground">
+                {s.sub}
               </div>
             </motion.div>
           ))}

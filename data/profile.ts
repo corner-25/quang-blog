@@ -54,159 +54,22 @@ export const experience = [
   },
 ];
 
-export type Project = {
-  title: string;
-  year: string;
-  org: string;
-  summary: string;
-  stack?: string[];
-  role: string;
-  highlight?: boolean;
-};
+export type { ProjectDetail } from "./projects";
+export type Project = import("./projects").ProjectDetail;
 
-export const projects: Project[] = [
-  {
-    title: "Số hóa tồn kho và dự báo đơn hàng",
-    year: "2024",
-    org: "Công ty TNHH Giang Minh",
-    summary:
-      "Phát triển hệ thống theo dõi tồn kho theo thời gian thực, kết hợp mô hình dự báo nhu cầu để hỗ trợ bộ phận kinh doanh lập kế hoạch nhập hàng chủ động và hạn chế hàng tồn đọng.",
-    stack: ["Python", "Time-series Forecasting", "PostgreSQL", "Power BI"],
-    role: "Phụ trách toàn bộ vòng đời dự án",
-  },
-  {
-    title: "Hệ thống chăm sóc sức khỏe và đặt lịch khám từ xa",
-    year: "2025",
-    org: "Bệnh viện Đa khoa Vạn An",
-    summary:
-      "Xây dựng nền tảng giúp người dùng quản lý thông tin sức khỏe của người thân, đặt lịch khám trực tuyến và kết nối dữ liệu với hệ thống bệnh viện.",
-    stack: ["Node.js", "Express", "MongoDB", "React", "Redux Toolkit", "MUI"],
-    role: "Phụ trách toàn bộ vòng đời dự án",
-    highlight: true,
-  },
-  {
-    title: "Hệ thống HIS cho phòng khám tim mạch",
-    year: "2026",
-    org: "Phòng khám Tim mạch Tuyết Lan",
-    summary:
-      "Phát triển hệ thống thông tin chuyên biệt cho phòng khám tim mạch, hợp nhất nghiệp vụ quản lý bệnh nhân, lịch khám, hồ sơ điện tử và báo cáo thống kê trên một nền tảng.",
-    stack: ["Node.js", "Express", "PostgreSQL", "React 19", "MUI 7", "Recharts"],
-    role: "Phụ trách toàn bộ vòng đời dự án",
-    highlight: true,
-  },
-  {
-    title: "Hệ thống quản lý tập trung Phòng Hành chính",
-    year: "2025 — 2026",
-    org: "Bệnh viện Đại học Y Dược TP.HCM",
-    summary:
-      "Xây dựng nền tảng tập trung để số hóa quy trình quản lý tài liệu, văn bản, lịch trực và báo cáo; giúp lãnh đạo theo dõi hoạt động hành chính tại một đầu mối thống nhất.",
-    stack: ["Full-stack", "Workflow Automation"],
-    role: "Phụ trách toàn bộ vòng đời dự án",
-  },
-  {
-    title: "Hệ thống khảo sát nội bộ Phòng Hành chính",
-    year: "2026",
-    org: "Bệnh viện Đại học Y Dược TP.HCM",
-    summary:
-      "Phát triển công cụ khảo sát nội bộ hỗ trợ thiết kế phiếu, phân phối theo nhóm đối tượng, theo dõi tỷ lệ phản hồi và tự động tổng hợp kết quả; thay thế quy trình gửi biểu mẫu và nhập liệu thủ công.",
-    stack: ["Full-stack", "Survey Design", "PostgreSQL"],
-    role: "Phụ trách toàn bộ vòng đời dự án",
-  },
-  {
-    title: "Cổng thông tin Hội nghị Viên chức — Người lao động 2026",
-    year: "2026",
-    org: "Bệnh viện Đại học Y Dược TP.HCM",
-    summary:
-      "Xây dựng cổng thông tin phục vụ tra cứu tài liệu, theo dõi chương trình và tiếp nhận ý kiến trước hội nghị. AI được ứng dụng để phân nhóm chủ đề và trực quan hóa nội dung phản hồi, giúp ban tổ chức nhanh chóng nhận diện các vấn đề được quan tâm.",
-    stack: ["Next.js", "LLM", "NLP", "Word Cloud", "Data Visualization"],
-    role: "Phụ trách toàn bộ vòng đời dự án",
-  },
-  {
-    title: "Hệ thống kiểm tra nghiệp vụ và bình chọn ảnh — Ngày Thư ký Thế giới 2026",
-    year: "2026",
-    org: "Bệnh viện Đại học Y Dược TP.HCM",
-    summary:
-      "Phát triển nền tảng phục vụ Ngày Thư ký Thế giới 2026, tích hợp ngân hàng câu hỏi, thi và chấm điểm tự động, bảng xếp hạng, tra cứu kết quả và bình chọn ảnh trực tuyến.",
-    stack: ["Node.js", "MongoDB", "React", "Vite"],
-    role: "Phụ trách toàn bộ vòng đời dự án",
-  },
-  {
-    title: "Mô hình bệnh tật của viên chức — người lao động",
-    year: "2026",
-    org: "Bệnh viện Đại học Y Dược TP.HCM",
-    summary:
-      "Phân tích hồ sơ khám sức khỏe định kỳ để mô tả cơ cấu bệnh tật theo độ tuổi, giới tính và vị trí công tác, làm cơ sở xây dựng chương trình chăm sóc sức khỏe chủ động cho nhân viên bệnh viện.",
-    stack: ["Python", "Statistical Modeling", "Clinical Data"],
-    role: "Nghiên cứu, phân tích dữ liệu và xây dựng mô hình",
-    highlight: true,
-  },
-  {
-    title: "Hệ thống quản lý đảng viên — Đảng ủy Bệnh viện",
-    year: "2026",
-    org: "Bệnh viện Đại học Y Dược TP.HCM",
-    summary:
-      "Số hóa nghiệp vụ quản lý hồ sơ đảng viên, sinh hoạt chi bộ, đảng phí, quá trình phấn đấu và báo cáo; giúp cấp ủy theo dõi dữ liệu nhất quán trên một hệ thống tập trung.",
-    stack: ["Full-stack", "Workflow Automation", "PostgreSQL"],
-    role: "Phụ trách toàn bộ vòng đời dự án",
-  },
-  {
-    title: "Nền tảng quản lý chỉ số hoạt động bệnh viện",
-    year: "2025 — 2026",
-    org: "Bệnh viện Đại học Y Dược TP.HCM",
-    summary:
-      "Thiết kế nền tảng hợp nhất chỉ số hoạt động của các đơn vị, hỗ trợ thu thập, chuẩn hóa, lưu trữ và trực quan hóa dữ liệu tại một nguồn duy nhất. Báo cáo được cập nhật trực tiếp khi có dữ liệu mới, giảm phụ thuộc vào thao tác xuất — nhập thủ công qua các công cụ BI.",
-    stack: ["Business Analysis", "Data Modeling", "Data Visualization", "Full-stack"],
-    role: "Business Analyst — phân tích nghiệp vụ và thiết kế hệ thống",
-    highlight: true,
-  },
-  {
-    title: "Bảng điều hành dành cho Ban Giám đốc",
-    year: "2026",
-    org: "Bệnh viện Đại học Y Dược TP.HCM",
-    summary:
-      "Thiết kế bảng điều hành dành cho Ban Giám đốc, tự động cập nhật báo cáo hằng ngày, đối chiếu biến động giữa các kỳ và trình bày chỉ số qua biểu đồ trực quan; giúp lãnh đạo nắm bắt tình hình hoạt động mà không phải chờ tổng hợp thủ công.",
-    stack: ["Business Analysis", "Frontend Design", "Data Visualization", "UI/UX"],
-    role: "Business Analyst & Frontend Design",
-    highlight: true,
-  },
-  {
-    title: "Hệ thống quản lý vật tư — trang thiết bị y tế 360°",
-    year: "2026",
-    org: "Bệnh viện Đại học Y Dược TP.HCM",
-    summary:
-      "Xây dựng hệ thống quản lý xuyên suốt vòng đời trang thiết bị y tế, từ hợp đồng, linh kiện, nhập — xuất kho đến bảo trì, khấu hao và thanh lý. Mỗi thiết bị có một hồ sơ tập trung, hỗ trợ theo dõi vị trí, tình trạng và giá trị còn lại.",
-    stack: ["Asset Lifecycle", "Inventory", "PostgreSQL", "Full-stack"],
-    role: "Phụ trách toàn bộ vòng đời dự án",
-    highlight: true,
-  },
-  {
-    title: "UMC AI Hub — Nền tảng AI cho công tác hành chính",
-    year: "2026",
-    org: "Bệnh viện Đại học Y Dược TP.HCM",
-    summary:
-      "Phát triển nền tảng tập trung các ứng dụng AI cho nghiệp vụ hành chính, gồm trợ lý xử lý văn bản, tra cứu quy trình và tự động hóa tác vụ lặp lại; qua đó giảm thời gian thao tác thủ công và tăng khả năng tiếp cận thông tin nội bộ.",
-    stack: ["LLM", "RAG", "Next.js", "Python", "Vector DB"],
-    role: "Phụ trách toàn bộ vòng đời dự án",
-    highlight: true,
-  },
-];
+import { projectsData } from "./projects";
 
-// Năm lớn nhất xuất hiện trong chuỗi year (vd "2025 — 2026" -> 2026).
-function latestYear(year: string): number {
-  const matches = year.match(/\d{4}/g);
-  if (!matches) return 0;
-  return Math.max(...matches.map(Number));
-}
+export const projects: Project[] = projectsData;
 
-// Dự án sắp xếp theo gần đây nhất trước. Cùng năm thì dự án khai báo sau
-// (mới thêm) đứng trước — sort ổn định nên ta đảo chỉ số khi hoà.
-export const projectsByRecent: Project[] = projects
-  .map((project, index) => ({ project, index }))
-  .sort((a, b) => {
-    const diff = latestYear(b.project.year) - latestYear(a.project.year);
-    return diff !== 0 ? diff : b.index - a.index;
-  })
-  .map(({ project }) => project);
+// Sắp xếp theo năm mới nhất, dự án highlight được ưu tiên
+export const projectsByRecent: Project[] = [...projectsData].sort((a, b) => {
+  const yearA = parseInt(a.year.slice(-4)) || 0;
+  const yearB = parseInt(b.year.slice(-4)) || 0;
+  if (yearB !== yearA) return yearB - yearA;
+  if (b.highlight && !a.highlight) return 1;
+  if (!b.highlight && a.highlight) return -1;
+  return 0;
+});
 
 export const research = [
   {

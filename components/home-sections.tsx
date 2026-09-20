@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import {
@@ -21,6 +22,9 @@ import {
   projectsByRecent,
   research,
 } from "@/data/profile";
+import { ProjectCard } from "./project-card";
+import { ProjectDrawer } from "./project-drawer";
+import type { ProjectDetail } from "@/data/projects";
 
 const stagger = {
   hidden: {},
@@ -207,65 +211,49 @@ export function ExperienceSection() {
 }
 
 export function ProjectsPreview() {
+  const [activeProject, setActiveProject] = useState<ProjectDetail | null>(null);
   const featured = projectsByRecent.slice(0, 3);
+
   return (
     <Section id="projects">
       <div className="flex items-end justify-between gap-6">
         <SectionHeader
-          eyebrow="Dự án"
-          title="Sản phẩm được xây từ những bài toán thực tế."
-          description="Từ phân tích nhu cầu, thiết kế giải pháp đến phát triển và vận hành, mỗi dự án là một nỗ lực đưa công nghệ vào quy trình làm việc cụ thể."
+          eyebrow="Dự án thực tế"
+          title="Hệ thống xây dựng từ bài toán lâm sàng & vận hành."
+          description="Từ nghiên cứu, phân tích nghiệp vụ, thiết kế giải pháp đến phát triển và vận hành thực tế tại Bệnh viện Đại học Y Dược TP.HCM và các cơ sở y tế."
         />
         <Link
           href="/projects"
-          className="hidden md:inline-flex items-center gap-1 text-sm font-medium text-muted-foreground hover:text-foreground"
+          className="hidden md:inline-flex items-center gap-1.5 rounded-full border border-border bg-card px-4 py-2 text-xs font-semibold text-foreground hover:border-accent/60 hover:text-accent transition shadow-sm"
         >
-          Xem tất cả <ArrowUpRight className="h-4 w-4" />
+          Xem tất cả ({projectsByRecent.length} dự án) <ArrowUpRight className="h-4 w-4" />
         </Link>
       </div>
 
-      <motion.div
-        variants={stagger}
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true, margin: "-80px" }}
-        className="grid gap-5 md:grid-cols-2 lg:grid-cols-3"
-      >
-        {featured.map((p) => (
-          <motion.div
-            key={p.title}
-            variants={itemUp}
-            whileHover={{ y: -4 }}
-            className="group flex flex-col rounded-2xl border border-border bg-card p-6 transition hover:border-accent/60 hover:shadow-[0_10px_40px_-12px_rgba(56,189,248,0.3)]"
-          >
-            <div className="flex items-start justify-between gap-3">
-              <span className="text-xs font-semibold uppercase tracking-wider text-accent">
-                {p.year}
-              </span>
-              <ArrowUpRight className="h-4 w-4 text-muted-foreground transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-foreground" />
-            </div>
-            <h3 className="mt-3 font-display text-lg font-bold leading-snug">
-              {p.title}
-            </h3>
-            <p className="mt-1 text-xs text-muted-foreground">{p.org}</p>
-            <p className="mt-3 line-clamp-3 text-sm text-muted-foreground">
-              {p.summary}
-            </p>
-            {p.stack && (
-              <div className="mt-4 flex flex-wrap gap-1.5">
-                {p.stack.slice(0, 4).map((s) => (
-                  <span
-                    key={s}
-                    className="rounded-full border border-border px-2 py-0.5 text-[10.5px] text-muted-foreground"
-                  >
-                    {s}
-                  </span>
-                ))}
-              </div>
-            )}
-          </motion.div>
+      <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+        {featured.map((p, i) => (
+          <ProjectCard
+            key={p.slug || p.title}
+            project={p}
+            index={i}
+            onSelect={setActiveProject}
+          />
         ))}
-      </motion.div>
+      </div>
+
+      <div className="mt-8 text-center md:hidden">
+        <Link
+          href="/projects"
+          className="inline-flex items-center gap-1.5 rounded-full border border-border bg-card px-5 py-2.5 text-xs font-semibold text-foreground"
+        >
+          Xem tất cả ({projectsByRecent.length} dự án) →
+        </Link>
+      </div>
+
+      <ProjectDrawer
+        project={activeProject}
+        onClose={() => setActiveProject(null)}
+      />
     </Section>
   );
 }

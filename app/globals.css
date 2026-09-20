@@ -3,27 +3,31 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 :root {
-  --background: #ffffff;
-  --foreground: #0a0a0a;
-  --muted: #f4f4f5;
-  --muted-foreground: #71717a;
-  --border: #e4e4e7;
-  --accent: #38bdf8;
+  --background: #f8fafc;
+  --foreground: #090d16;
+  --muted: #f1f5f9;
+  --muted-foreground: #64748b;
+  --border: #e2e8f0;
+  --accent: #0284c7;
   --accent-soft: #e0f2fe;
+  --bio-pulse: #059669;
+  --gold-honor: #d97706;
   --card: #ffffff;
-  --card-foreground: #0a0a0a;
+  --card-foreground: #090d16;
 }
 
 .dark {
-  --background: #09090b;
-  --foreground: #fafafa;
-  --muted: #18181b;
-  --muted-foreground: #a1a1aa;
-  --border: #27272a;
-  --accent: #7dd3fc;
-  --accent-soft: #082f49;
-  --card: #0f0f12;
-  --card-foreground: #fafafa;
+  --background: #06080d;
+  --foreground: #f8fafc;
+  --muted: #0f172a;
+  --muted-foreground: #94a3b8;
+  --border: #1e293b;
+  --accent: #00f0ff;
+  --accent-soft: rgba(0, 240, 255, 0.12);
+  --bio-pulse: #10b981;
+  --gold-honor: #f59e0b;
+  --card: #0c111c;
+  --card-foreground: #f8fafc;
 }
 
 @theme inline {
@@ -34,10 +38,19 @@
   --color-border: var(--border);
   --color-accent: var(--accent);
   --color-accent-soft: var(--accent-soft);
+  --color-bio-pulse: var(--bio-pulse);
+  --color-gold-honor: var(--gold-honor);
   --color-card: var(--card);
   --color-card-foreground: var(--card-foreground);
   --font-sans: var(--font-inter);
+  --font-heading: var(--font-heading);
+  --font-display: var(--font-display);
   --font-mono: var(--font-mono);
+}
+
+.font-heading {
+  font-family: var(--font-heading), var(--font-inter), sans-serif;
+  letter-spacing: -0.025em;
 }
 
 * {
@@ -103,12 +116,11 @@ body {
   background: var(--muted-foreground);
 }
 
-/* Typography utility — Fraunces variable */
+/* Typography utility — Modern tech display heading (Space Grotesk) */
 .font-display {
-  font-family: var(--font-display), Georgia, serif;
-  font-variation-settings: "SOFT" 50, "opsz" 144;
-  letter-spacing: 0.005em;
-  word-spacing: 0.06em;
+  font-family: var(--font-display), var(--font-heading), sans-serif;
+  letter-spacing: -0.03em;
+  font-weight: 700;
 }
 
 /* Glass card */
@@ -194,32 +206,18 @@ body {
 .prose-custom h1,
 .prose-custom h2,
 .prose-custom h3 {
-  font-family: var(--font-display), Georgia, serif;
-  font-variation-settings: "SOFT" 50, "opsz" 144;
-  letter-spacing: 0.005em;
-  word-spacing: 0.06em;
-  margin-top: 2.2em;
-  margin-bottom: 0.7em;
+  font-family: var(--font-heading), var(--font-display), sans-serif;
+  letter-spacing: -0.025em;
+  margin-top: 2em;
+  margin-bottom: 0.6em;
   font-weight: 700;
 }
-.prose-custom h2 { font-size: 1.75rem; }
-.prose-custom h3 { font-size: 1.35rem; }
+.prose-custom h2 { font-size: 1.65rem; }
+.prose-custom h3 { font-size: 1.3rem; }
 .prose-custom p {
-  margin: 1.4em 0;
-  text-align: justify;
-  text-justify: inter-word;
-  hyphens: auto;
-}
-/* Drop cap on the very first paragraph */
-.prose-custom > p:first-of-type::first-letter {
-  font-family: var(--font-display), Georgia, serif;
-  font-variation-settings: "SOFT" 100, "opsz" 144;
-  float: left;
-  font-size: 4.4rem;
-  line-height: 0.9;
-  padding: 0.35rem 0.7rem 0 0;
-  color: var(--accent);
-  font-weight: 700;
+  margin: 1.3em 0;
+  text-align: left;
+  line-height: 1.85;
 }
 .prose-custom a {
   color: var(--accent);

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Fraunces, JetBrains_Mono } from "next/font/google";
+import { Inter, Space_Grotesk, JetBrains_Mono, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Navbar } from "@/components/navbar";
@@ -14,11 +14,18 @@ const inter = Inter({
   display: "swap",
 });
 
-const fraunces = Fraunces({
+const jakarta = Plus_Jakarta_Sans({
+  variable: "--font-heading",
+  subsets: ["latin", "vietnamese"],
+  display: "swap",
+  weight: ["500", "600", "700", "800"],
+});
+
+const spaceGrotesk = Space_Grotesk({
   variable: "--font-display",
   subsets: ["latin", "vietnamese"],
   display: "swap",
-  axes: ["SOFT", "opsz"],
+  weight: ["500", "600", "700"],
 });
 
 const mono = JetBrains_Mono({
@@ -62,7 +69,7 @@ export default function RootLayout({
     <html
       lang="vi"
       suppressHydrationWarning
-      className={`${inter.variable} ${fraunces.variable} ${mono.variable} h-full antialiased`}
+      className={`${inter.variable} ${jakarta.variable} ${spaceGrotesk.variable} ${mono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-background text-foreground">
         <ThemeProvider>
