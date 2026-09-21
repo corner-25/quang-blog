@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useSyncExternalStore } from "react";
+import { createPortal } from "react-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   X,
@@ -23,12 +24,20 @@ function GithubIcon({ className = "h-4 w-4" }: { className?: string }) {
   );
 }
 
+const emptySubscribe = () => () => {};
+
 type ProjectDrawerProps = {
   project: ProjectDetail | null;
   onClose: () => void;
 };
 
 export function ProjectDrawer({ project, onClose }: ProjectDrawerProps) {
+  const isClient = useSyncExternalStore(
+    emptySubscribe,
+    () => true,
+    () => false
+  );
+
   // Prevent body scroll when drawer is open
   useEffect(() => {
     if (project) {
@@ -46,12 +55,15 @@ export function ProjectDrawer({ project, onClose }: ProjectDrawerProps) {
     }
   }, [project, onClose]);
 
-  return (
+  if (!isClient) return null;
+
+  return createPortal(
     <AnimatePresence>
       {project && (
-        <div className="fixed inset-0 z-50 flex justify-end">
+        <div className="fixed inset-0 z-[100] flex justify-end">
           {/* Backdrop */}
           <motion.div
+            key="drawer-backdrop"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -62,11 +74,12 @@ export function ProjectDrawer({ project, onClose }: ProjectDrawerProps) {
 
           {/* Slide-over Drawer Panel */}
           <motion.div
+            key="drawer-panel"
             initial={{ x: "100%" }}
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ type: "spring", damping: 28, stiffness: 260 }}
-            className="relative z-10 flex h-full w-full max-w-2xl flex-col border-l border-border bg-card shadow-2xl overflow-hidden"
+            className="relative z-10 flex h-full w-full max-w-2xl flex-col border-l border-border bg-card text-foreground shadow-2xl overflow-hidden"
           >
             {/* Header */}
             <div className="sticky top-0 z-20 flex items-center justify-between border-b border-border bg-card/85 px-6 py-4 backdrop-blur-md">
@@ -284,6 +297,7 @@ export function ProjectDrawer({ project, onClose }: ProjectDrawerProps) {
           </motion.div>
         </div>
       )}
-    </AnimatePresence>
+    </AnimatePresence>,
+    document.body
   );
 }
