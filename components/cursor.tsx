@@ -1,158 +1,109 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import { motion, useMotionValue, useSpring } from "framer-motion";
+import { useEffect, useState } from "react";
+import { motion, useMotionTemplate, useMotionValue, useSpring } from "framer-motion";
 
 const INTERACTIVE_SELECTOR =
   'a, button, [role="button"], input, textarea, select, label, summary, [data-cursor-hover]';
 
-// Kích thước vòng khi rảnh (không hover) và padding khi ôm phần tử.
-const RING_IDLE_SIZE = 40;
-const SNAP_PADDING = 8;
-const SNAP_RADIUS = 12;
+const IDLE_RADIUS = 460;
+const HOVER_RADIUS = 620;
 
-type Snap = {
-  x: number;
-  y: number;
-  width: number;
-  height: number;
-  radius: number;
-};
-
+/**
+ * Option 1: Spotlight Ambient Glow (Linear / Vercel style)
+ * - Giữ nguyên chuột OS mặc định (100% nhạy, 0ms lag, nguyên bản con trỏ hệ điều hành)
+ * - Tạo một luồng sáng ambient glow (radial gradient) mềm mại, trôi êm ái theo con trỏ
+ * - Nhẹ nhàng chiếu sáng các khối thẻ (card), viền (border) và nền khi lướt qua
+ * - Tự động mở rộng bán kính khi hover vào liên kết/nút bấm (interactive element)
+ * - Tự động ẩn nhẹ nhàng khi chuột rời màn hình
+ */
 export function Cursor() {
-  // Toạ độ con trỏ thật — chấm nhỏ bám theo tức thời.
-  const x = useMotionValue(-100);
-  const y = useMotionValue(-100);
-
-  // Tâm vòng ngoài: mặc định theo con trỏ, khi hover thì kéo về tâm phần tử.
-  const ringX = useSpring(x, { stiffness: 240, damping: 26, mass: 0.5 });
-  const ringY = useSpring(y, { stiffness: 240, damping: 26, mass: 0.5 });
-
-  // Kích thước/bo góc vòng ngoài — animate mượt khi snap vào phần tử.
-  const width = useSpring(RING_IDLE_SIZE, { stiffness: 300, damping: 30 });
-  const height = useSpring(RING_IDLE_SIZE, { stiffness: 300, damping: 30 });
-  const radius = useSpring(RING_IDLE_SIZE / 2, { stiffness: 300, damping: 30 });
-
   const [enabled, setEnabled] = useState(false);
-  const visibleRef = useRef(false);
-  const snapRef = useRef<Snap | null>(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  // Toạ độ thực của chuột
+  const mouseX = useMotionValue(-1000);
+  const mouseY = useMotionValue(-1000);
+
+  // Lò xo vật lý tạo độ trôi êm ái, hữu cơ cho quầng sáng
+  const springX = useSpring(mouseX, { damping: 28, stiffness: 220, mass: 0.25 });
+  const springY = useSpring(mouseY, { damping: 28, stiffness: 220, mass: 0.25 });
+
+  // Bán kính quầng sáng: co giãn mượt khi rê qua phần tử tương tác
+  const radius = useSpring(IDLE_RADIUS, { damping: 25, stiffness: 200 });
 
   useEffect(() => {
-    // Chỉ bật trên thiết bị có chuột (pointer: fine), không bật cho cảm ứng.
-    const mq = window.matchMedia("(pointer: fine)");
-    const update = () => setEnabled(mq.matches);
-    update();
-    mq.addEventListener("change", update);
-    return () => mq.removeEventListener("change", update);
+    // Chỉ kích hoạt trên thiết bị có chuột (pointer: fine) và không bật prefers-reduced-motion
+    const fineMq = window.matchMedia("(pointer: fine)");
+    const motionMq = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+    const checkSupport = () => {
+      setEnabled(fineMq.matches && !motionMq.matches);
+    };
+
+    checkSupport();
+    fineMq.addEventListener("change", checkSupport);
+    motionMq.addEventListener("change", checkSupport);
+
+    return () => {
+      fineMq.removeEventListener("change", checkSupport);
+      motionMq.removeEventListener("change", checkSupport);
+    };
   }, []);
 
   useEffect(() => {
     if (!enabled) return;
 
-    const root = document.documentElement;
-    root.classList.add("cursor-none-on-fine");
+    const onMouseMove = (e: MouseEvent) => {
+      mouseX.set(e.clientX);
+      mouseY.set(e.clientY);
 
-    // Khi đang ôm một phần tử, giữ vòng dính vào tâm phần tử đó.
-    const applySnap = (snap: Snap) => {
-      ringX.set(snap.x);
-      ringY.set(snap.y);
-      width.set(snap.width);
-      height.set(snap.height);
-      radius.set(snap.radius);
-    };
-
-    const releaseSnap = () => {
-      snapRef.current = null;
-      width.set(RING_IDLE_SIZE);
-      height.set(RING_IDLE_SIZE);
-      radius.set(RING_IDLE_SIZE / 2);
-    };
-
-    const onMove = (e: MouseEvent) => {
-      x.set(e.clientX);
-      y.set(e.clientY);
-
-      // Khi rảnh, vòng theo con trỏ. Khi đang snap, giữ vòng dính phần tử.
-      if (snapRef.current) {
-        applySnap(snapRef.current);
-      } else {
-        ringX.set(e.clientX);
-        ringY.set(e.clientY);
-      }
-
-      if (!visibleRef.current) {
-        visibleRef.current = true;
-        document.body.dataset.cursorVisible = "true";
+      if (!isVisible) {
+        setIsVisible(true);
       }
     };
 
-    const onLeave = () => {
-      visibleRef.current = false;
-      document.body.dataset.cursorVisible = "false";
-    };
-
-    const onOver = (e: MouseEvent) => {
+    const onMouseOver = (e: MouseEvent) => {
       const target = e.target as Element | null;
-      const interactive = target?.closest(INTERACTIVE_SELECTOR) as
-        | HTMLElement
-        | null
-        | undefined;
+      const isInteractive = Boolean(target?.closest(INTERACTIVE_SELECTOR));
+      radius.set(isInteractive ? HOVER_RADIUS : IDLE_RADIUS);
+    };
 
-      if (interactive) {
-        const rect = interactive.getBoundingClientRect();
-        const snap: Snap = {
-          x: rect.left + rect.width / 2,
-          y: rect.top + rect.height / 2,
-          width: rect.width + SNAP_PADDING * 2,
-          height: rect.height + SNAP_PADDING * 2,
-          radius: SNAP_RADIUS,
-        };
-        snapRef.current = snap;
-        applySnap(snap);
-      } else if (snapRef.current) {
-        releaseSnap();
+    const onMouseLeave = (e: MouseEvent) => {
+      // Chuột thực sự rời khỏi cửa sổ trình duyệt
+      if (!e.relatedTarget) {
+        setIsVisible(false);
       }
     };
 
-    window.addEventListener("mousemove", onMove, { passive: true });
-    window.addEventListener("mouseout", onLeave);
-    window.addEventListener("mouseover", onOver);
-    // Cuộn trang khi đang snap → phần tử dịch chuyển, thả snap cho an toàn.
-    window.addEventListener("scroll", releaseSnap, { passive: true });
+    const onMouseEnter = () => {
+      setIsVisible(true);
+    };
+
+    window.addEventListener("mousemove", onMouseMove, { passive: true });
+    window.addEventListener("mouseover", onMouseOver, { passive: true });
+    document.documentElement.addEventListener("mouseleave", onMouseLeave);
+    document.documentElement.addEventListener("mouseenter", onMouseEnter);
 
     return () => {
-      root.classList.remove("cursor-none-on-fine");
-      window.removeEventListener("mousemove", onMove);
-      window.removeEventListener("mouseout", onLeave);
-      window.removeEventListener("mouseover", onOver);
-      window.removeEventListener("scroll", releaseSnap);
+      window.removeEventListener("mousemove", onMouseMove);
+      window.removeEventListener("mouseover", onMouseOver);
+      document.documentElement.removeEventListener("mouseleave", onMouseLeave);
+      document.documentElement.removeEventListener("mouseenter", onMouseEnter);
     };
-  }, [enabled, x, y, ringX, ringY, width, height, radius]);
+  }, [enabled, isVisible, mouseX, mouseY, radius]);
 
   if (!enabled) return null;
 
   return (
-    <>
-      {/* Chấm giữa — bám con trỏ thật, luôn cho biết vị trí click chính xác */}
-      <motion.div
-        aria-hidden
-        style={{ translateX: x, translateY: y }}
-        className="pointer-events-none fixed left-0 top-0 z-[9999] -ml-[3px] -mt-[3px] hidden h-[6px] w-[6px] rounded-full bg-foreground mix-blend-difference [body[data-cursor-visible='true']_&]:block"
-      />
-      {/* Vòng ngoài — spring theo con trỏ, hút & ôm lấy phần tử khi hover */}
-      <motion.div
-        aria-hidden
-        style={{
-          translateX: ringX,
-          translateY: ringY,
-          width,
-          height,
-          borderRadius: radius,
-          x: "-50%",
-          y: "-50%",
-        }}
-        className="pointer-events-none fixed left-0 top-0 z-[9998] hidden border border-foreground/60 mix-blend-difference [body[data-cursor-visible='true']_&]:block"
-      />
-    </>
+    <motion.div
+      aria-hidden="true"
+      className={`pointer-events-none fixed inset-0 z-30 transition-opacity duration-500 ease-out ${
+        isVisible ? "opacity-100" : "opacity-0"
+      }`}
+      style={{
+        background: useMotionTemplate`radial-gradient(${radius}px circle at ${springX}px ${springY}px, var(--cursor-spotlight-inner) 0%, var(--cursor-spotlight-outer) 45%, transparent 75%)`,
+      }}
+    />
   );
 }
