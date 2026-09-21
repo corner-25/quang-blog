@@ -2,7 +2,6 @@
 
 import React, { useRef, useState } from "react";
 import { motion, useMotionValue } from "framer-motion";
-import { ArrowUpRight, Sparkles } from "lucide-react";
 import type { ProjectDetail } from "@/data/projects";
 import { cn } from "@/lib/utils";
 
@@ -66,7 +65,7 @@ export function ProjectCard({ project: p, index, onSelect }: ProjectCardProps) {
           />
         )}
 
-        {/* Top Header: Robust Badges Layout */}
+        {/* Top Header: Robust Badges Layout without excess icons */}
         <div className="flex items-start justify-between gap-2.5">
           <div className="flex flex-wrap items-center gap-1.5 min-w-0 flex-1">
             <span className="inline-flex shrink-0 items-center rounded-md bg-accent/10 px-2 py-0.5 text-[11px] font-semibold text-accent font-mono whitespace-nowrap">
@@ -76,15 +75,14 @@ export function ProjectCard({ project: p, index, onSelect }: ProjectCardProps) {
               {p.category}
             </span>
             {p.highlight && (
-              <span className="inline-flex shrink-0 items-center gap-1 rounded-full bg-amber-500/15 px-2 py-0.5 text-[10px] font-semibold text-amber-500 dark:text-amber-400 whitespace-nowrap">
-                <Sparkles className="h-3 w-3" /> Nổi bật
+              <span className="inline-flex shrink-0 items-center rounded-full bg-amber-500/15 px-2 py-0.5 text-[10px] font-semibold text-amber-500 dark:text-amber-400 whitespace-nowrap">
+                Nổi bật
               </span>
             )}
           </div>
 
-          <div className="flex shrink-0 items-center gap-1 text-xs font-medium text-muted-foreground group-hover:text-accent transition-colors pt-0.5">
-            <span className="hidden sm:inline text-[11px] whitespace-nowrap">Chi tiết</span>
-            <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+          <div className="flex shrink-0 items-center text-xs font-medium text-muted-foreground group-hover:text-accent transition-colors pt-0.5">
+            <span className="text-[11px] whitespace-nowrap">Chi tiết →</span>
           </div>
         </div>
 

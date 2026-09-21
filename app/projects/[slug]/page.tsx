@@ -10,8 +10,6 @@ import {
   Server,
   Cpu,
   Database,
-  CheckCircle2,
-  Sparkles,
   ExternalLink,
 } from "lucide-react";
 import { Section } from "@/components/section";
@@ -79,8 +77,8 @@ export default async function ProjectDetailPage({ params }: Props) {
               {project.category}
             </span>
             {project.highlight && (
-              <span className="inline-flex items-center gap-1 rounded-full bg-amber-500/15 px-2.5 py-0.5 text-xs font-semibold text-amber-500 dark:text-amber-400">
-                <Sparkles className="h-3 w-3" /> Nổi bật
+              <span className="inline-flex items-center rounded-full bg-amber-500/15 px-2.5 py-0.5 text-xs font-semibold text-amber-500 dark:text-amber-400">
+                Nổi bật
               </span>
             )}
           </div>
@@ -171,12 +169,12 @@ export default async function ProjectDetailPage({ params }: Props) {
             {project.keyFeatures && project.keyFeatures.length > 0 && (
               <div className="rounded-2xl border border-border bg-card p-6 md:p-8">
                 <h2 className="text-xs font-semibold uppercase tracking-widest text-accent">
-                  Chức năng & Module đột phá
+                  Chức năng & Phân hệ tiêu biểu
                 </h2>
                 <ul className="mt-5 space-y-3.5">
                   {project.keyFeatures.map((feat, i) => (
                     <li key={i} className="flex items-start gap-3 text-sm md:text-base">
-                      <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-accent" />
+                      <span className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
                       <span className="text-foreground/90 leading-relaxed">
                         {feat}
                       </span>
@@ -208,7 +206,7 @@ export default async function ProjectDetailPage({ params }: Props) {
                   </a>
                 ) : project.isPrivate ? (
                   <div className="rounded-xl border border-border/80 bg-muted/40 p-3 text-center text-xs text-muted-foreground">
-                    🔒 <strong>Dự án bảo mật nội bộ</strong>
+                    <strong>Dự án bảo mật nội bộ</strong>
                     <div className="mt-1 text-[11px]">
                       Mã nguồn thuộc quyền sở hữu của đơn vị y tế.
                     </div>
@@ -287,7 +285,6 @@ export default async function ProjectDetailPage({ params }: Props) {
                   {project.architecture.deployment && (
                     <div>
                       <div className="flex items-center gap-1.5 font-semibold text-foreground">
-                        <Sparkles className="h-3.5 w-3.5 text-accent" />
                         Deployment
                       </div>
                       <div className="mt-1 text-muted-foreground">

@@ -5,13 +5,11 @@ import { createPortal } from "react-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   X,
-  CheckCircle2,
   Server,
   Layers,
   Cpu,
   Database,
   ArrowRight,
-  Sparkles,
 } from "lucide-react";
 import Link from "next/link";
 import type { ProjectDetail } from "@/data/projects";
@@ -91,8 +89,8 @@ export function ProjectDrawer({ project, onClose }: ProjectDrawerProps) {
                   {project.year}
                 </span>
                 {project.highlight && (
-                  <span className="inline-flex items-center gap-1 rounded-full bg-amber-500/15 px-2.5 py-0.5 text-[11px] font-semibold text-amber-500 dark:text-amber-400">
-                    <Sparkles className="h-3 w-3" /> Nổi bật
+                  <span className="inline-flex items-center rounded-full bg-amber-500/15 px-2.5 py-0.5 text-[11px] font-semibold text-amber-500 dark:text-amber-400">
+                    Nổi bật
                   </span>
                 )}
               </div>
@@ -119,10 +117,10 @@ export function ProjectDrawer({ project, onClose }: ProjectDrawerProps) {
                 </p>
                 <div className="mt-4 flex flex-wrap items-center gap-3 text-xs text-muted-foreground">
                   <span className="rounded-md border border-border bg-muted/60 px-2.5 py-1">
-                    🏢 {project.org}
+                    {project.org}
                   </span>
                   <span className="rounded-md border border-border bg-muted/60 px-2.5 py-1">
-                    👤 {project.role}
+                    {project.role}
                   </span>
                 </div>
               </div>
@@ -238,7 +236,7 @@ export function ProjectDrawer({ project, onClose }: ProjectDrawerProps) {
                   <ul className="space-y-2 text-xs md:text-sm">
                     {project.keyFeatures.map((f, i) => (
                       <li key={i} className="flex items-start gap-2.5">
-                        <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
+                        <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
                         <span className="text-muted-foreground leading-relaxed">
                           {f}
                         </span>
@@ -280,7 +278,7 @@ export function ProjectDrawer({ project, onClose }: ProjectDrawerProps) {
                   </a>
                 ) : project.isPrivate ? (
                   <span className="text-[11px] text-muted-foreground italic">
-                    🔒 Dự án nội bộ (Private Repository)
+                    Dự án nội bộ (Private Repository)
                   </span>
                 ) : null}
               </div>
