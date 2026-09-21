@@ -574,7 +574,7 @@ export const projectsData: ProjectDetail[] = [
     slug: "dashboard-phong-hanh-chinh",
     title: "Dashboard Báo cáo Điều hành Ban Giám đốc",
     subtitle: "Theo dõi hằng ngày chỉ số khám chữa bệnh, khía cạnh khẩn cấp và tổng hợp đa chu kỳ tuần/tháng/quý/năm",
-    year: "2025 — Hiện tại",
+    year: "2026 — Hiện tại",
     category: "Chuyển đổi số & Vận hành",
     org: "Bệnh viện Đại học Y Dược TP.HCM",
     role: "Lead Dashboard Engineer & Business Analyst",

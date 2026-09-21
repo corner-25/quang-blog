@@ -63,8 +63,13 @@ export const projects: Project[] = projectsData;
 
 // Sắp xếp theo năm mới nhất, dự án highlight được ưu tiên
 export const projectsByRecent: Project[] = [...projectsData].sort((a, b) => {
-  const yearA = parseInt(a.year.slice(-4)) || 0;
-  const yearB = parseInt(b.year.slice(-4)) || 0;
+  const parseYear = (y: string) => {
+    if (y.includes("Hiện tại")) return 2026.5;
+    const matches = y.match(/\d{4}/g);
+    return matches ? parseInt(matches[matches.length - 1]) : 0;
+  };
+  const yearA = parseYear(a.year);
+  const yearB = parseYear(b.year);
   if (yearB !== yearA) return yearB - yearA;
   if (b.highlight && !a.highlight) return 1;
   if (!b.highlight && a.highlight) return -1;
