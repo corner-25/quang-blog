@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { motion, useMotionTemplate, useMotionValue, useSpring } from "framer-motion";
+import { useEffect, useRef, useState, useSyncExternalStore } from "react";
+import { useMotionValue, useSpring } from "framer-motion";
 
 const INTERACTIVE_SELECTOR =
   'a, button, [role="button"], input, textarea, select, label, summary, [data-cursor-hover]';
@@ -9,17 +9,28 @@ const INTERACTIVE_SELECTOR =
 const IDLE_RADIUS = 460;
 const HOVER_RADIUS = 620;
 
+const emptySubscribe = () => () => {};
+
 /**
  * Option 1: Spotlight Ambient Glow (Linear / Vercel style)
- * - Giữ nguyên chuột OS mặc định (100% nhạy, 0ms lag, nguyên bản con trỏ hệ điều hành)
- * - Tạo một luồng sáng ambient glow (radial gradient) mềm mại, trôi êm ái theo con trỏ
- * - Nhẹ nhàng chiếu sáng các khối thẻ (card), viền (border) và nền khi lướt qua
- * - Tự động mở rộng bán kính khi hover vào liên kết/nút bấm (interactive element)
- * - Tự động ẩn nhẹ nhàng khi chuột rời màn hình
+ * - Giữ nguyên 100% con trỏ mặc định hệ điều hành (nhanh, nhạy, 0ms lag).
+ * - Quầng sáng ambient radial gradient trôi êm ái theo con trỏ chuột bằng lò xo vật lý (spring).
+ * - Cập nhật trực tiếp qua CSS variables (--x, --y, --r) trên DOM element:
+ *   -> 60-120 FPS mượt mà
+ *   -> Không gây React re-render
+ *   -> Tuyệt đối an toàn về SSR / Hydration / Rules of Hooks
+ * - Tự động nở rộng nhẹ khi hover vào nút/link và ẩn mượt khi rời khỏi cửa sổ.
  */
 export function Cursor() {
-  const [enabled, setEnabled] = useState(false);
+  const isMounted = useSyncExternalStore(
+    emptySubscribe,
+    () => true,
+    () => false
+  );
+
+  const containerRef = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
+  const [isSupported, setIsSupported] = useState(false);
 
   // Toạ độ thực của chuột
   const mouseX = useMotionValue(-1000);
@@ -32,13 +43,13 @@ export function Cursor() {
   // Bán kính quầng sáng: co giãn mượt khi rê qua phần tử tương tác
   const radius = useSpring(IDLE_RADIUS, { damping: 25, stiffness: 200 });
 
+  // Kiểm tra thiết bị có hỗ trợ con trỏ chuột và không bật prefers-reduced-motion
   useEffect(() => {
-    // Chỉ kích hoạt trên thiết bị có chuột (pointer: fine) và không bật prefers-reduced-motion
     const fineMq = window.matchMedia("(pointer: fine)");
     const motionMq = window.matchMedia("(prefers-reduced-motion: reduce)");
 
     const checkSupport = () => {
-      setEnabled(fineMq.matches && !motionMq.matches);
+      setIsSupported(fineMq.matches && !motionMq.matches);
     };
 
     checkSupport();
@@ -51,16 +62,24 @@ export function Cursor() {
     };
   }, []);
 
+  // Lắng nghe thay đổi từ spring để cập nhật CSS variables trực tiếp trên DOM
   useEffect(() => {
-    if (!enabled) return;
+    if (!isSupported) return;
+
+    const unX = springX.on("change", (v) => {
+      containerRef.current?.style.setProperty("--spotlight-x", `${Math.round(v)}px`);
+    });
+    const unY = springY.on("change", (v) => {
+      containerRef.current?.style.setProperty("--spotlight-y", `${Math.round(v)}px`);
+    });
+    const unR = radius.on("change", (v) => {
+      containerRef.current?.style.setProperty("--spotlight-r", `${Math.round(v)}px`);
+    });
 
     const onMouseMove = (e: MouseEvent) => {
       mouseX.set(e.clientX);
       mouseY.set(e.clientY);
-
-      if (!isVisible) {
-        setIsVisible(true);
-      }
+      setIsVisible(true);
     };
 
     const onMouseOver = (e: MouseEvent) => {
@@ -70,7 +89,6 @@ export function Cursor() {
     };
 
     const onMouseLeave = (e: MouseEvent) => {
-      // Chuột thực sự rời khỏi cửa sổ trình duyệt
       if (!e.relatedTarget) {
         setIsVisible(false);
       }
@@ -86,23 +104,29 @@ export function Cursor() {
     document.documentElement.addEventListener("mouseenter", onMouseEnter);
 
     return () => {
+      unX();
+      unY();
+      unR();
       window.removeEventListener("mousemove", onMouseMove);
       window.removeEventListener("mouseover", onMouseOver);
       document.documentElement.removeEventListener("mouseleave", onMouseLeave);
       document.documentElement.removeEventListener("mouseenter", onMouseEnter);
     };
-  }, [enabled, isVisible, mouseX, mouseY, radius]);
+  }, [isSupported, mouseX, mouseY, springX, springY, radius]);
 
-  if (!enabled) return null;
+  // Không gọi hook nào sau điều kiện này
+  if (!isMounted || !isSupported) return null;
 
   return (
-    <motion.div
+    <div
+      ref={containerRef}
       aria-hidden="true"
       className={`pointer-events-none fixed inset-0 z-30 transition-opacity duration-500 ease-out ${
         isVisible ? "opacity-100" : "opacity-0"
       }`}
       style={{
-        background: useMotionTemplate`radial-gradient(${radius}px circle at ${springX}px ${springY}px, var(--cursor-spotlight-inner) 0%, var(--cursor-spotlight-outer) 45%, transparent 75%)`,
+        background:
+          "radial-gradient(var(--spotlight-r, 460px) circle at var(--spotlight-x, -1000px) var(--spotlight-y, -1000px), var(--cursor-spotlight-inner) 0%, var(--cursor-spotlight-outer) 45%, transparent 75%)",
       }}
     />
   );
