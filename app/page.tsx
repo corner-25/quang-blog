@@ -1,25 +1,5 @@
-import { Hero } from "@/components/hero";
-import {
-  AboutPreview,
-  CTASection,
-  EducationSection,
-  ExperienceSection,
-  PressSection,
-  ProjectsPreview,
-  ResearchPreview,
-} from "@/components/home-sections";
+import { MoleculeHome } from "@/components/molecule/molecule-home";
 
 export default function Home() {
-  return (
-    <>
-      <Hero />
-      <AboutPreview />
-      <EducationSection />
-      <ExperienceSection />
-      <ProjectsPreview />
-      <ResearchPreview />
-      <PressSection />
-      <CTASection />
-    </>
-  );
+  return <MoleculeHome />;
 }

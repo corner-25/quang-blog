@@ -80,7 +80,8 @@ export function Navbar() {
         </nav>
 
         <div className="flex items-center gap-2">
-          <ThemeToggle />
+          {/* Trang chủ luôn ở giao diện sáng nên không hiện nút đổi giao diện */}
+          {pathname !== "/" && <ThemeToggle />}
           <button
             type="button"
             aria-label="Mở menu"

@@ -1,30 +1,15 @@
 "use client";
 
-import { useState } from "react";
-import Link from "next/link";
 import { motion } from "framer-motion";
 import {
   ArrowUpRight,
   Award,
-  BookOpen,
   Briefcase,
   GraduationCap,
   Newspaper,
-  PenLine,
-  Sparkles,
 } from "lucide-react";
 import { Section, SectionHeader } from "./section";
-import {
-  education,
-  experience,
-  press,
-  profile,
-  projectsByRecent,
-  research,
-} from "@/data/profile";
-import { ProjectCard } from "./project-card";
-import { ProjectDrawer } from "./project-drawer";
-import type { ProjectDetail } from "@/data/projects";
+import { education, experience, press, research } from "@/data/profile";
 
 const stagger = {
   hidden: {},
@@ -36,55 +21,6 @@ const itemUp = {
   hidden: { opacity: 0, y: 18 },
   show: { opacity: 1, y: 0, transition: { duration: 0.45 } },
 };
-
-export function AboutPreview() {
-  return (
-    <Section id="about">
-      <SectionHeader
-        eyebrow="Giới thiệu"
-        title="Một chút về tôi."
-        description={profile.bio}
-      />
-
-      <div className="grid gap-6 md:grid-cols-3">
-        {[
-          {
-            icon: PenLine,
-            label: "Viết lách",
-            text: "Một dòng chữ tử tế có thể đi xa hơn ta nghĩ.",
-          },
-          {
-            icon: BookOpen,
-            label: "Đọc sách",
-            text: "Mỗi cuốn sách là một cuộc đời đi mượn.",
-          },
-          {
-            icon: Sparkles,
-            label: "Vibe coding",
-            text: "Biến ý tưởng thành sản phẩm có thể sử dụng.",
-          },
-        ].map(({ icon: Icon, label, text }, i) => (
-          <motion.div
-            key={label}
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.45, delay: i * 0.08 }}
-            className="group rounded-2xl border border-border bg-card p-6 transition hover:-translate-y-1 hover:border-accent/60 hover:shadow-[0_8px_30px_-8px_rgba(56,189,248,0.25)]"
-          >
-            <div className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-accent-soft text-accent">
-              <Icon className="h-5 w-5" />
-            </div>
-            <h3 className="mt-4 font-semibold">{label}</h3>
-            <p className="mt-1.5 text-sm text-muted-foreground leading-relaxed">
-              {text}
-            </p>
-          </motion.div>
-        ))}
-      </div>
-    </Section>
-  );
-}
 
 export function EducationSection() {
   const edu = education[0];
@@ -206,55 +142,6 @@ export function ExperienceSection() {
           </motion.div>
         ))}
       </motion.div>
-    </Section>
-  );
-}
-
-export function ProjectsPreview() {
-  const [activeProject, setActiveProject] = useState<ProjectDetail | null>(null);
-  const featured = projectsByRecent.slice(0, 3);
-
-  return (
-    <Section id="projects">
-      <SectionHeader
-        eyebrow="Dự án thực tế"
-        title="Những gì tôi đã và đang xây dựng."
-        description="Các sản phẩm dữ liệu và công cụ phần mềm phục vụ trực tiếp cho công tác chuyên môn và vận hành tại Bệnh viện Đại học Y Dược TP.HCM cùng các đối tác y tế."
-        action={
-          <Link
-            href="/projects"
-            className="hidden md:inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-2 text-xs font-semibold text-foreground hover:border-accent/60 hover:text-accent transition shadow-sm"
-          >
-            Xem tất cả ({projectsByRecent.length} dự án)
-            <ArrowUpRight className="h-3.5 w-3.5" />
-          </Link>
-        }
-      />
-
-      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        {featured.map((p, i) => (
-          <ProjectCard
-            key={p.slug || p.title}
-            project={p}
-            index={i}
-            onSelect={setActiveProject}
-          />
-        ))}
-      </div>
-
-      <div className="mt-8 text-center md:hidden">
-        <Link
-          href="/projects"
-          className="inline-flex items-center gap-1.5 rounded-full border border-border bg-card px-5 py-2.5 text-xs font-semibold text-foreground"
-        >
-          Xem tất cả ({projectsByRecent.length} dự án) →
-        </Link>
-      </div>
-
-      <ProjectDrawer
-        project={activeProject}
-        onClose={() => setActiveProject(null)}
-      />
     </Section>
   );
 }
@@ -383,48 +270,6 @@ export function PressSection() {
           </motion.div>
         </div>
       </div>
-    </Section>
-  );
-}
-
-export function CTASection() {
-  return (
-    <Section id="contact" className="md:py-24">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-80px" }}
-        transition={{ duration: 0.5 }}
-        className="relative overflow-hidden rounded-3xl border border-border bg-card p-10 md:p-14"
-      >
-        <div
-          className="blob bg-sky-300/40 dark:bg-sky-500/20"
-          style={{ top: -120, right: -120, width: 380, height: 380 }}
-        />
-        <div className="relative">
-          <h2 className="font-display text-3xl font-bold md:text-4xl">
-            Bạn muốn cùng tôi xây gì đó?
-          </h2>
-          <p className="mt-3 max-w-xl text-muted-foreground">
-            Mình luôn sẵn lòng trò chuyện về dữ liệu y tế, AI ứng dụng, hay
-            đơn giản là một ý tưởng còn dang dở của bạn.
-          </p>
-          <div className="mt-6 flex flex-wrap gap-3">
-            <a
-              href={`mailto:${profile.email}`}
-              className="inline-flex items-center gap-2 rounded-full bg-foreground px-5 py-3 text-sm font-medium text-background hover:-translate-y-0.5 transition-transform"
-            >
-              Gửi email cho tôi
-            </a>
-            <Link
-              href="/blog"
-              className="inline-flex items-center gap-2 rounded-full border border-border px-5 py-3 text-sm font-medium hover:bg-muted transition"
-            >
-              Đọc bài viết mới nhất
-            </Link>
-          </div>
-        </div>
-      </motion.div>
     </Section>
   );
 }

@@ -10,6 +10,21 @@ export const profile = {
   location: "TP. Hồ Chí Minh, Việt Nam",
 };
 
+// Bốn ô thành tích ở trạm Khởi hành của trang chủ.
+export const heroStats = [
+  { k: "Danh hiệu", v: "Thủ khoa chuyên ngành", sub: "ĐH Bách Khoa TP.HCM" },
+  { k: "Tốt nghiệp", v: "GPA 3.8 / 4.0", sub: "Loại Xuất sắc" },
+  { k: "Khóa luận AI CDS", v: "9.5 / 10", sub: "Điểm cao nhất khoa" },
+  { k: "Hệ thống y tế", v: "10+ Dự án", sub: "Thực tế tại BV ĐHYD" },
+];
+
+// Mỗi sở thích kèm một câu, hiện ở trạm Giới thiệu.
+export const hobbyNotes = [
+  { label: "Viết lách", text: "Một dòng chữ tử tế có thể đi xa hơn ta nghĩ." },
+  { label: "Đọc sách", text: "Mỗi cuốn sách là một cuộc đời đi mượn." },
+  { label: "Vibe coding", text: "Biến ý tưởng thành sản phẩm có thể sử dụng." },
+];
+
 export const education = [
   {
     school: "Trường Đại học Bách khoa — ĐHQG TP.HCM",
