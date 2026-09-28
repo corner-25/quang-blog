@@ -27,7 +27,7 @@ const UP = new THREE.Vector3(0, 1, 0);
 const HOVER_SCALE = 1.5;
 const DIM_OPACITY = 0.12;
 // Camera đuổi theo vị trí cuộn mỗi khung hình một phần; số càng nhỏ, cú bay càng chậm và mượt.
-const CAMERA_FOLLOW = 0.045;
+const CAMERA_FOLLOW = 0.03;
 const BASE_COLORS = ["#5EEAD4", "#93C5FD", "#A5B4FC", "#FCD34D"];
 
 type Atom = THREE.Mesh<THREE.SphereGeometry, THREE.MeshStandardMaterial>;

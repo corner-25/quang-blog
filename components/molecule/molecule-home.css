@@ -132,7 +132,7 @@
   pointer-events: none;
 }
 .mh-gap {
-  height: 140vh;
+  height: 180vh;
   pointer-events: none;
 }
 .mh-panel {
@@ -566,6 +566,6 @@
     grid-template-columns: 1fr;
   }
   .mh-gap {
-    height: 110vh;
+    height: 140vh;
   }
 }
